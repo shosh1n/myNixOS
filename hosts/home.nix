@@ -41,13 +41,14 @@
    # --yet unsorted
      emacs
      notepadqq
+     udiskie
     #pcmanfm
      cinnamon.nemo
      line-awesome
    
    # Office
      libreoffice
-     polybar
+     #polybar
 
    # window managers related stuff
      xmobar
@@ -64,7 +65,7 @@
 
    # Apps 
      firefox
-
+     whatsapp-for-linux
    # work
      nice-dcv-client
 

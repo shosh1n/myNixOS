@@ -27,7 +27,7 @@
 	
         # Customization 
         wombat256-vim         # Color scheme for lightline
-        catppuccin-nvim            # Color scheme for text
+        catppuccin-nvim
 
         lightline-vim         # Info bar at bottom
 	indent-blankline-nvim # Indentation lines

@@ -18,8 +18,8 @@
 
   
 
-  networking.hostName = "shoshin"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  networking.hostName = "NixOS"; # Define your hostname.
+  #networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -92,13 +92,13 @@
      #flatpak.enable = false;
   };
   
- # xdg.portal = {
- #   enable = true;
- #   extraPortals = [pkgs.xdg-desktop-portal-gtk ];
- # };
+  xdg.portal = {
+    enable = true;
+    extraPortals = [pkgs.xdg-desktop-portal-gtk ];
+  };
 
   # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
+  services.xserver.libinput.enable = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -121,33 +121,33 @@
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
-
   nixpkgs.overlays = [
- 	(self: super: {
-	  sl = super.sl.overrideAttrs (old: {
-	    src = super.fetchFromGitHub {
-		owner = "mtoyoda";
-		repo = "sl";
-		rev = "923e7d7ebc5c1f009755bdeb789ac25658ccce03"; #pin commit
-		sha256 = "0000000000000000000000000000000000000000000000000000";
-		};
-	      });
-           })
-	(self: super: {
-	  discord = super.discord.overrideAttrs (
-	   _: { src = builtins.fetchTarball {
-		url = "https://discord.com/api/download?platform=linux&format=tar.gz";
-		sha256 = "0hdgif8jpp5pz2c8lxas88ix7mywghdf9c9fn95n0dwf8g1c1xbb";
-		}; }
-	    );
-	  })
-             	(self: super: {
-      	  neovim = super.neovim.override {
-      		viAlias = true;
-      		vimAlias = true;
-      		};
-      	     })
-	];
+    (self: super: {
+      sl = super.sl.overrideAttrs (old: {
+        src = super.fetchFromGitHub {
+	  owner = "mtoyoda";
+	    repo = "sl";
+	    rev = "923e7d7ebc5c1f009755bdeb789ac25658ccce03"; #pin commit
+	    sha256 = "0000000000000000000000000000000000000000000000000000";
+	};
+      });
+    })
+    (self: super: {
+      discord = super.discord.overrideAttrs (
+        _: { 
+          src = builtins.fetchTarball {
+	    url = "https://discord.com/api/download?platform=linux&format=tar.gz";
+	    sha256 = "0hdgif8jpp5pz2c8lxas88ix7mywghdf9c9fn95n0dwf8g1c1xbb";
+          }; }
+	);
+      })
+    (self: super: {
+      neovim = super.neovim.override {
+        viAlias = true;
+      	vimAlias = true;
+      };
+    })
+  ];
 
   nix = {                                   # Nix Package Manager settings
     settings ={
