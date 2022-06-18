@@ -16,9 +16,10 @@
      wget
      git
      ranger
-   # kitty
+     kitty
      wezterm
      zsh
+     fzf
      btop
      scrot
      zsh-syntax-highlighting
@@ -26,14 +27,18 @@
      openconnect
      usbutils
      pciutils
+     zsh-completions
+     nix-zsh-completions
+     zsh-z
      xclip
-   # File Management
+   # file management
      gnome.file-roller
      unzip
      unrar
      rsync
-     pcmanfm
 
+   # development
+     gcc
    # texteditors
     #vim
     #neovim 
@@ -42,7 +47,6 @@
      emacs
      notepadqq
      udiskie
-    #pcmanfm
      cinnamon.nemo
      line-awesome
    
@@ -81,7 +85,7 @@
      mpv
      nitrogen
      vlc
-
+     spotify
     ];
    # file.".config/wall".source = ../modules/themes/wall;
     pointerCursor = {                         

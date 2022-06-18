@@ -44,5 +44,26 @@
       base0E = "b45bcf";
       base0F = "00f769";
     };
+    nord = {
+      scheme    = "nord";
+      black     = "000000";
+      red       = "2e3440";
+      organge   = "3b4252";
+      yellow    = "434c5e";
+      green     = "4c566a";
+      teal      = "d8dee9";
+      blue      = "e5e9f0";
+      dark-blue = "eceff4";
+      magenta   = "8fbcbb";
+      violet    = "88c0d0";
+      cyan      = "81a1c1";
+      dark-cyan = "5e81ac";
+      emphasis  = "bf616a";
+      text      = "d08770";
+      text-alt  = "ebcb8b";
+      fg        = "a3be8c";
+      bg        = "b48ead";
+
+    };
   };
 }

@@ -16,15 +16,14 @@
         # Syntax
         vim-nix
         vim-markdown
-
+        #nvim-transparent
         # Quality of life
         vim-lastplace         # Opens document where you left it
         auto-pairs            # Print double quotes/brackets/etc.
         vim-gitgutter         # See uncommitted changes of file :GitGutterEnable
-
         # File Tree
 	nerdtree              # File Manager - set in extraConfig to F6
-	
+        #transparent-nvim
         # Customization 
         wombat256-vim         # Color scheme for lightline
         catppuccin-nvim

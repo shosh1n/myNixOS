@@ -48,13 +48,14 @@
 
     displayManager = {
 
-      setupCommands = ''
+      sessionCommands = ''
         #!/bin/sh
         SCREEN=$(${pkgs.xorg.xrandr}/bin/xrandr | grep " connected " | wc -l)
         if [[ $SCREEN -eq 1 ]]; then
           ${pkgs.xorg.xrandr}/bin/xrandr --output DP-4 --primary --mode 1920x1080 --rotate normal --rate 120
         elif [[ $SCREEN -eq 2 ]]; then
-          ${pkgs.xorg.xrandr}/bin/xrandr --output DP-4 --primary --mode 1920x1080 --rotate normal -- rate 120 --output HDMI-0 --mode 1280x1024 --rotate normal --rate 60 --right-of DP-4
+          ${pkgs.xorg.xrandr}/bin/xrandr --output DP-4 --primary --mode 1920x1080 --rotate normal --rate 120 --output HDMI-0 --mode 1280x1024 --rotate normal --rate 60 --right-of DP-4
+        fi  
       '';
 
       lightdm = {
@@ -71,6 +72,10 @@
 	      package = pkgs.numix-cursor-theme;
 	      size = 16;
               };
+            extraConfig = ''
+                [greeter]
+                  active-monitor = 0
+                  '';  
             };
           };
 	};
