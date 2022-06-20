@@ -109,6 +109,7 @@
     };
     font = {
       name = "FiraCode";
+      size = 8;
     };
   };
 
