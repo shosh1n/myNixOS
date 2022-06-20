@@ -20,6 +20,7 @@
      wezterm
      zsh
      fzf
+     autojump
      btop
      scrot
      zsh-syntax-highlighting

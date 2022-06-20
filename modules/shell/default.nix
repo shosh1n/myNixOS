@@ -5,6 +5,6 @@
 
 [
   ./git.nix
-  #./zsh.nix
+  ./zsh.nix
   #./wezterm.nix
 ]
