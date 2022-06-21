@@ -21,6 +21,7 @@
      zsh
      fzf
      tree
+     texlive.combined.scheme-full
      autojump
      zsh-powerlevel10k
      btop
