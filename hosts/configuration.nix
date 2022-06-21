@@ -147,6 +147,16 @@
       	vimAlias = true;
       };
     })
+#    (self: super: {
+#      picom = super.picom.overrideAttrs (old: {
+#        src = super.fetchFromGitHub {
+#          owner = "ibhagwan";
+#          repo = "picom";
+#          rev = "c4107bb6cc17773fdc6c48bb2e475ef957513c7a";
+#          sha256 = "0000000000000000000000000000000000000000000000000000";     
+#        };
+#      });
+#    })
   ];
 
   nix = {                                   # Nix Package Manager settings

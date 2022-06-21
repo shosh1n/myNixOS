@@ -20,7 +20,9 @@
      wezterm
      zsh
      fzf
+     tree
      autojump
+     zsh-powerlevel10k
      btop
      scrot
      zsh-syntax-highlighting
