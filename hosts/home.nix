@@ -40,6 +40,7 @@
      unzip
      unrar
      rsync
+     djvu2pdf
 
    # development
      gcc
