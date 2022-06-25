@@ -71,7 +71,9 @@
      
    # organize
      rofi
-
+   # virtual machines
+     libvirt 
+     qemu_full
    # Apps 
      firefox
      whatsapp-for-linux
