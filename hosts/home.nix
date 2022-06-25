@@ -74,6 +74,7 @@
    # virtual machines
      libvirt 
      qemu_full
+     virtmanager
    # Apps 
      firefox
      whatsapp-for-linux
