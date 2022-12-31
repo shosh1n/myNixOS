@@ -59,6 +59,7 @@
      fira-code
      gcc
      cachix
+     tor-browser-bundle-bin
      #clang_14
      cudatoolkit
      libGLU
