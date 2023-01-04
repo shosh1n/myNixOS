@@ -15,5 +15,5 @@
 
 [
   ./nvim
-  #./emacs
+  ./emacs.nix
 ]
