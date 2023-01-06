@@ -161,6 +161,7 @@
      blueman
    # social
      #discord-ptb
+     webcamoid
      vimPlugins.yuck-vim
      emacsPackages.cuda-mode
      emacsPackages.yuck-mode

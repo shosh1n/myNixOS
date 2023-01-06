@@ -24,7 +24,6 @@
     serviceConfig.ExecStart = "${pkgs.linuxPackages.nvidia_x11.bin}/bin/nvidia-smi";
   };
   services.emacs.enable = true;
-  services.emacs.package = import /home/shoshin/.emacs.d {pkgs = pkgs; };
 
   networking.hostName = "NixOS"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
