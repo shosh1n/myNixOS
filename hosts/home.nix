@@ -158,8 +158,8 @@
      direnv
      teams 
      nix-direnv
-     emacsPackages.scad-mode 
-     emacsPackages.scad-preview
+     #emacsPackages.scad-mode 
+     #emacsPackages.scad-preview
      blueman
    # social
      #discord-ptb
