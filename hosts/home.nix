@@ -158,10 +158,13 @@
      direnv
      teams 
      nix-direnv
+     emacsPackages.scad-mode 
+     emacsPackages.scad-preview
      blueman
    # social
      #discord-ptb
      webcamoid
+     openscad
      vimPlugins.yuck-vim
      emacsPackages.cuda-mode
      emacsPackages.yuck-mode
