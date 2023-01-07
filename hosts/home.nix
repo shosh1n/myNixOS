@@ -140,8 +140,11 @@
      isync
      qemu_full
      tmatrix
+     reaper
+     imgui
      #steam
      virtmanager
+     evince
      pciutils
    # Apps 
      firefox
@@ -160,6 +163,8 @@
      nix-direnv
      #emacsPackages.scad-mode 
      #emacsPackages.scad-preview
+     gtkwave
+     lilypond
      blueman
    # social
      #discord-ptb

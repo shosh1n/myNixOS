@@ -151,7 +151,7 @@ hardware = {
   environment = {
     systemPackages = with pkgs;
     [
-      (python39.withPackages(ps: with ps; [seaborn scikit-learn numpy toolz jupyter matplotlib pandas scipy pytorch h5py tensorflow networkx gdown pandas glob2 tabulate pygments]))
+      (python39.withPackages(ps: with ps; [chess seaborn scikit-learn numpy toolz jupyter matplotlib pandas scipy pytorch h5py tensorflow networkx gdown pandas glob2 tabulate pygments]))
       discord
     ];
     variables = {
