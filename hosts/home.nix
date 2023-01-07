@@ -141,7 +141,6 @@
      qemu_full
      tmatrix
      reaper
-     imgui
      #steam
      virtmanager
      evince
