@@ -141,13 +141,15 @@
      qemu_full
      tmatrix
      reaper
+     octave
+     gimp
      #steam
      virtmanager
      evince
      pciutils
    # Apps 
      firefox
-   #  whatsapp-for-linux
+     #whatsapp-for-linux
    # work
     # nice-dcv-client
      #gtk
