@@ -149,6 +149,7 @@
      pciutils
    # Apps 
      firefox
+     #mastodon
      #whatsapp-for-linux
    # work
     # nice-dcv-client
