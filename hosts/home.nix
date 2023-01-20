@@ -34,6 +34,10 @@
      zsh-syntax-highlighting
      xorg.xkill
      openconnect
+     emacsPackages.vterm
+     libtool
+     libvterm
+     cmake
      usbutils
      rtags
      rPackages.phosphoricons
@@ -149,6 +153,7 @@
      pciutils
    # Apps 
      firefox
+     emacsPackages.mastodon
      #mastodon
      #whatsapp-for-linux
    # work
