@@ -36,6 +36,11 @@
      openconnect
      emacsPackages.vterm
      libtool
+     msmtp
+     mu
+     notmuch
+     isync
+     emacsPackages.mbsync
      libvterm
      cmake
      usbutils
@@ -120,7 +125,7 @@
      #nix-tree
      haskellPackages.X11-xft   
      bear
-     networkmanager_dmenu
+     #networkmanager_dmenu
      networkmanagerapplet
      xcape
      xorg.xkbcomp
