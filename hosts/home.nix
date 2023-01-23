@@ -130,7 +130,8 @@
      xcape
      xorg.xkbcomp
      xorg.xmodmap
-
+     pass
+     offlineimap
      xmobar
      picom
      #taffybar
@@ -144,11 +145,15 @@
      #organize
      rofi
      #virtual machines
-     libvirt 
+     libvirt
+     auctex
+     emacs28Packages.auctex
      vscode-fhs
      isync
      qemu_full
      tmatrix
+     inkscape-with-extensions
+     imagemagick
      reaper
      octave
      gimp
