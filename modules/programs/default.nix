@@ -12,7 +12,7 @@
 #
 
 [
-   ./java.nix
+   #./java.nix
    ./rofi.nix
    ./ssh.nix
   #./vscode.nix

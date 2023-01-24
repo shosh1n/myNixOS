@@ -30,10 +30,10 @@ in
 
   };
 
-  config = mkIf cfg.enable {
-    home.packages = [ cgf.package ];
+ # config = mkIf cfg.enable {
+ #   home.packages = [ cgf.package ];
 
-    home.sessionVariables.JAVA_HOME = cfg.package.home;
-  };
+ #   home.sessionVariables.JAVA_HOME = cfg.package.home;
+ # };
 
 }
