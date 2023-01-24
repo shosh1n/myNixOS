@@ -1,4 +1,4 @@
 
 [
-  #./java.nix
+  ./java.nix
 ]
