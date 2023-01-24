@@ -1,6 +1,7 @@
 #
 #  Apps
 #
+#p
 #  flake.nix
 #   ├─ ./hosts
 #   │   └─ home.nix
@@ -11,7 +12,9 @@
 #
 
 [
+   ./java.nix
    ./rofi.nix
    ./ssh.nix
-   ./vscode.nix
+  #./vscode.nix
+
 ]
