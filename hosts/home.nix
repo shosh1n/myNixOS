@@ -94,9 +94,16 @@
     #binutils
    # --yet unsorted
      emacs
+     emacsPackages.reazon
+     emacsPackages.dash
+     emacsPackages.buttercup
+     emacsPackages.s
      emacs28Packages.zmq
      flameshot
      notepadqq
+     xdotool
+     xorg.xprop
+     xorg.xwininfo
      nodejs
      udiskie
      cinnamon.nemo
