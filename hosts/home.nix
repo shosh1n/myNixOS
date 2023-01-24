@@ -104,6 +104,7 @@
      notepadqq
      xdotool
      xorg.xprop
+     jdk
      xorg.xwininfo
      nodejs
      udiskie
