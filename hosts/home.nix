@@ -13,7 +13,10 @@
     homeDirectory = "/home/${user}";
     packages = with pkgs; [
    # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-   # Terminal 
+   # Terminal
+   #
+   #Packages
+   #Start decluttering and configuring this file
      wget
      git
      ranger
@@ -49,6 +52,8 @@
      rPackages.phosphoricons
      cmake-language-server
      nix-zsh-completions
+     languagetool
+     emacsPackages.languagetool
      zsh-z
      emacsPackages.haskell-mode
      ccls
@@ -86,13 +91,8 @@
      ncurses5
      stdenv.cc
      autoconf
-   # development
      gdb
-   # texteditors
-    #vim
     gitRepo
-    #neovim 
-    #binutils
    # --yet unsorted
      emacs
      emacsPackages.reazon
@@ -110,11 +110,7 @@
      udiskie
      cinnamon.nemo
      line-awesome
-   # DEV
-    # clang
      yapf
-     #conda
-     #pylint
     #Office
      libreoffice
      clang-tools     
@@ -123,18 +119,10 @@
      stack
      font-awesome
      material-design-icons
-     #xfce.orage
-     
-     #haskellPackages.brittany # code format
-     #cabal2nix
-     #cabal-install
+
      ghc
-     #haskell-language-server
-     #haskellPackages.hoogle
-     #nix-tree
-     haskellPackages.X11-xft   
+     haskellPackages.X11-xft
      bear
-     #networkmanager_dmenu
      networkmanagerapplet
      xcape
      xorg.xkbcomp
@@ -153,7 +141,6 @@
      xorg.xmessage 
      #organize
      rofi
-     #virtual machines
      libvirt
      auctex
      emacs28Packages.auctex
@@ -173,10 +160,7 @@
    # Apps 
      firefox
      emacsPackages.mastodon
-     #mastodon
-     #whatsapp-for-linux
    # work
-    # nice-dcv-client
      #gtk
      gnupg
      pavucontrol
@@ -187,13 +171,10 @@
      direnv
      teams 
      nix-direnv
-     #emacsPackages.scad-mode 
-     #emacsPackages.scad-preview
      gtkwave
      lilypond
      blueman
    # social
-     #discord-ptb
      webcamoid
      openscad
      vimPlugins.yuck-vim
