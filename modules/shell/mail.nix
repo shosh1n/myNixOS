@@ -43,7 +43,7 @@ in
         services = {
           mbsync = {
             enable = true;
-            frequency = "*:0/15";
+            frequency = "*:0/60";
             preExec = "${pkgs.isync}/bin/mbsync -Ha";
             postExec = "${pkgs.mu}/bin/mu index -m ${maildir}";
           };

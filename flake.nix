@@ -14,7 +14,7 @@
     };
 
     nixgl = {                                                    
-      url = "github:guibou/nixGL";
+   home-manager    url = "github:guibou/nixGL";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
