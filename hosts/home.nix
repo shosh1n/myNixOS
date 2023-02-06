@@ -24,6 +24,7 @@
      ripgrep
      lftp
      eww
+     dropbox
      fd
      wezterm
      tor
@@ -49,6 +50,8 @@
      cmake
      usbutils
      rtags
+     qsampler
+     qjackctl
      rPackages.phosphoricons
      cmake-language-server
      nix-zsh-completions
@@ -182,6 +185,7 @@
      emacsPackages.yuck-mode
      emacsPackages.org-pdftools
    # Video/Audio
+     linuxsampler
      feh
      mpv
      nitrogen
