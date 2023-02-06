@@ -18,7 +18,7 @@
   ./polybar.nix
   ./gpg-agent.nix
   ./emacs.nix
-  ./dropbox.nix
+  #./dropbox.nix --using maestral
   #./python.nix
 ]
 

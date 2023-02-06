@@ -24,7 +24,8 @@
      ripgrep
      lftp
      eww
-     dropbox
+     #dropbox
+     maestral
      fd
      wezterm
      tor
