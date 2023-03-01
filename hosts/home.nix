@@ -23,6 +23,7 @@
      kitty
      ripgrep
      lftp
+     networkmanagerapplet
      eww
      #dropbox
      maestral
@@ -118,7 +119,7 @@
     #Office
      libreoffice
      clang-tools     
-
+     qt6.full
    # window managers related stuff
      stack
      font-awesome

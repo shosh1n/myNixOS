@@ -56,9 +56,9 @@
         #!/bin/sh
         SCREEN=$(${pkgs.xorg.xrandr}/bin/xrandr | grep " connected " | wc -l)
         if [[ $SCREEN -eq 1 ]]; then
-          ${pkgs.xorg.xrandr}/bin/xrandr --output DP-4 --scale 1.05x1.05  --primary --mode 1920x1080 --rotate normal --rate 120
+          ${pkgs.xorg.xrandr}/bin/xrandr --output DP-4 --scale 1.0x1.0  --primary --mode 1920x1080 --rotate normal --rate 120
         elif [[ $SCREEN -eq 2 ]]; then
-          ${pkgs.xorg.xrandr}/bin/xrandr --output DP-4 --scale 1.0x1.0 --primary --mode 1920x1080 --rotate normal --rate 120 --output HDMI-0 --mode 1280x1024 --rotate normal --rate 60 --right-of DP-4
+          ${pkgs.xorg.xrandr}/bin/xrandr --output DP-4 --scale 1.0x1.0 --primary --mode 1920x1080 --rotate normal --rate 120 --output HDMI-0 --mode 1680x1050 --rotate normal --rate 75 --right-of DP-4
         fi  
       '';
 
