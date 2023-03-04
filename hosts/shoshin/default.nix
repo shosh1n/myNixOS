@@ -48,7 +48,7 @@
  
     enable = true;
     videoDrivers = [ "nvidia" ];
-    layout =  "de";
+    layout =  "de,jp";
 
     displayManager = {
 
