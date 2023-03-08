@@ -116,15 +116,16 @@
      cinnamon.nemo
      line-awesome
      yapf
+     logseq
     #Office
      libreoffice
-     clang-tools     
-     qt6.full
+     clang-tools      
+     fcitx5
    # window managers related stuff
      stack
      font-awesome
      material-design-icons
-
+     xkb-switch
      ghc
      haskellPackages.X11-xft
      bear
@@ -177,7 +178,6 @@
      teams 
      nix-direnv
      gtkwave
-     lilypond
      blueman
    # social
      webcamoid

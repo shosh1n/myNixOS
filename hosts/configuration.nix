@@ -53,7 +53,7 @@
     LC_TIME = "en_US.utf8";
     LC_ALL = "en_US.utf8";
   };
-
+  i18n.inputMethod.fcitx.engines = with pkgs.fcitx-engines; [ mozc ];
 
   # Configure console keymap
   console = {
@@ -62,6 +62,11 @@
   };
   
   fonts.fonts = with pkgs; [
+   carlito
+   dejavu_fonts
+   ipafont
+   kochi-substitute
+   ttf_bitstream_vera
    source-code-pro
    jetbrains-mono
    noto-fonts
@@ -77,6 +82,21 @@
    fira-code
    fira-code-symbols
   ];
+
+  fonts.fontconfig.defaultFonts = {
+    monospace = [
+      "DejaVu Sans Mono"
+      "IPAGothic"
+    ];
+    sansSerif =[
+      "DejaVu Sans"
+      "IPAPGothic"
+    ];
+    serif = [
+      "DejaVu Serif"
+      "IPAPMincho"
+    ];
+  };
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -151,7 +171,7 @@ hardware = {
   environment = {
     systemPackages = with pkgs;
     [
-      (python39.withPackages(ps: with ps; [chess seaborn scikit-learn numpy toolz jupyter matplotlib pandas scipy pytorch h5py tensorflow networkx gdown pandas glob2 tabulate pygments]))
+      (python39.withPackages(ps: with ps; [chess seaborn scikit-learn numpy toolz jupyter opencv4 librosa matplotlib pandas scipy pytorch h5py tensorflow networkx gdown pandas glob2 tabulate pygments]))
       discord
     ];
     variables = {
@@ -216,25 +236,6 @@ hardware = {
       	vimAlias = true;
       };
     })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #    (self: super: {
 #      picom = super.picom.overrideAttrs (old: {
 #        src = super.fetchFromGitHub {
