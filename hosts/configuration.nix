@@ -23,6 +23,12 @@
     wantedBy = ["multi-user.target" ];
     serviceConfig.ExecStart = "${pkgs.linuxPackages.nvidia_x11.bin}/bin/nvidia-smi";
   };
+
+  ###Coming up Maestral
+  #systemd.services.maestral-start ={
+  #  wantedBy = ["multi-user.target"];
+  #  serviceConfig.ExecStart = 
+  #}
   services.emacs.enable = true;
 
   networking.hostName = "NixOS"; # Define your hostname.
@@ -171,7 +177,7 @@ hardware = {
   environment = {
     systemPackages = with pkgs;
     [
-      (python39.withPackages(ps: with ps; [chess seaborn scikit-learn numpy toolz jupyter opencv4 librosa matplotlib pandas scipy pytorch h5py tensorflow networkx gdown pandas glob2 tabulate pygments]))
+      (python39.withPackages(ps: with ps; [h5py chess seaborn scikit-learn numpy toolz jupyter opencv4 librosa matplotlib pandas scipy pytorch h5py tensorflow networkx gdown pandas glob2 tabulate pygments]))
       discord
     ];
     variables = {
@@ -185,7 +191,7 @@ hardware = {
   };  
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
-
+  services.lorri.enable = true;
   # Open ports in the firewall
   # networking.firewall.allowedTCPPorts = [ ... ];
   networking.firewall.allowedTCPPorts = [ 57621 ];

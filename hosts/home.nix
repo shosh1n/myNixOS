@@ -109,7 +109,7 @@
      notepadqq
      xdotool
      xorg.xprop
-     jdk
+     jetbrains.pycharm-professional
      xorg.xwininfo
      nodejs
      udiskie
@@ -118,6 +118,8 @@
      yapf
      logseq
     #Office
+     micromamba
+     jetbrains.clion
      libreoffice
      clang-tools      
      fcitx5
@@ -129,6 +131,8 @@
      ghc
      haskellPackages.X11-xft
      bear
+     gnome.cheese
+     gtk2-x11
      networkmanagerapplet
      xcape
      xorg.xkbcomp
@@ -157,6 +161,7 @@
      inkscape-with-extensions
      imagemagick
      reaper
+     anki
      octave
      gimp
      #steam
@@ -167,6 +172,7 @@
      firefox
      emacsPackages.mastodon
    # work
+     hdf5
      #gtk
      gnupg
      pavucontrol
