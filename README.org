@@ -1,6 +1,7 @@
 * My NixOS configuration
-Here you can see my NixOS configuration. It's an ongoing work in progess I use Xmonad and Xmobar as an desktop environment.
-In terms of IDE I use (doom) emacs + direnv + nix-shell.
+
+trying out the Dotfiles of [[https://github.com/hlissner/dotfiles][hlissner]] flavored by [[https://github.com/Emiller88][emiller88]].
+Check these guys out, great stuff!
 
 ** TODO extend configuration of modules via  Home-Mananger
     [[./Desktop.png]]
