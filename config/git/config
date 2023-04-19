@@ -1,0 +1,27 @@
+[user]
+	name = shosh1n
+	email = hermannschris@googlemail.com
+	signingkey = AE891E7F56DC7789
+[commit]
+	gpgSign = true
+[core]
+	whitespace = trailing-space
+[github]
+	user = shosh1n
+[tag]
+	gpgSign = if-asked
+[rebase]
+	autosquash = true
+[push]
+	default = current
+[filter "lfs"]
+	required = true
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	clean = git-lfs clean -- %f
+[url "https://github.com/"]
+	insteadOf = gh:
+[url "git@github.com:shosh1n/"]
+	insteadOf = gh:/
+[url "https://gist.github.com/"]
+	insteadOf = gist:
