@@ -6,7 +6,6 @@
     address = "0.0.0.0";
     mediaDir = "/data/media/docs/paperless";
     consumptionDir = "/data/media/docs/consume";
-    #passwordFile = /home/shoshin/.password-store/paperless/password;
     passwordFile = config.age.secrets.paperless-adminCredentials.path;
   };
 }

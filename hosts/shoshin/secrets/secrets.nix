@@ -5,5 +5,5 @@
 
 in
   {
-    "paperless-adminCredentials.age".publicKeys = [ hkey ukey ];
+    "paperless-adminCredentials.age".publicKeys = [ ukey ];
   }
