@@ -99,7 +99,7 @@
     address = "0.0.0.0";
     mediaDir = "/data/media/docs/paperless";
     consumptionDir = "/data/media/docs/consume";
-    passwordFile = "/home/shoshin/.setup/secrets/paperlessAuth.age";
+    passwordFile = "/secrets/paperlessAuth.age";
     extraConfig.PAPERLESS_OCR_LANGUAGE = "deu+eng";
   };
   systemd.services.paperless-scheduler.after = ["var-lib-paperless.mount"];
