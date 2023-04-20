@@ -92,6 +92,45 @@
 
 	   theme.active = "alucard";
    };
+
+
+
+  services.paperless = {
+    address = "0.0.0.0";
+    mediaDir = "/data/media/docs/paperless";
+    consumptionDir = "/data/media/docs/consume";
+  };
+
+
+
+  networking.firewall = {
+    allowedTCPPorts = [ 17500 ];
+    allowedUDPPorts = [ 17500 ];
+  };
+
+  systemd.user.services.maestral = {
+    description = "maestral";
+    wantedBy = [ "graphical-session.target" ];
+ 
+  environment = {
+    QT_PLUGIN_PATH = "/run/current-system/sw/" + pkgs.qt5.qtbase.qtPluginPrefix;
+    QML2_IMPORT_PATH = "/run/current-system/sw/" + pkgs.qt5.qtbase.qtQmlPrefix;
+  };
+
+   serviceConfig = {
+      ExecStart = "${pkgs.maestral.out}/bin/maestral";
+      ExecReload = "${pkgs.coreutils.out}/bin/kill -HUP $MAINPID";
+      KillMode = "control-group"; # upstream recommends process
+      Restart = "on-failure";
+      PrivateTmp = true;
+      ProtectSystem = "full";
+      Nice = 10;
+    };
+    };
+
+
+
+ 
   
   programs.ssh.startAgent = true;
   networking.networkmanager.enable = true;
@@ -125,5 +164,5 @@
   };
   virtualisation.libvirtd.enable = true;
   programs.dconf.enable = true;
-  environment.systemPackages = with pkgs; [ virt-manager ];
+  environment.systemPackages = with pkgs; [ virt-manager maestral ];
 }
