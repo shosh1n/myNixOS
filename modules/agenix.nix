@@ -1,3 +1,5 @@
+# modules/agenix.nix -- encrypt secrets in nix store
+
 { options, config, inputs, lib, pkgs, ... }:
 
 with builtins;
@@ -9,7 +11,7 @@ let
   secretsFile = "${secretsDir}/secrets.nix";
 in {
   imports = [ agenix.nixosModules.age ];
-  environment.systemPackages = [ agenix.defaultPackage.x86_64-linux ];
+  environment.systemPackages = [ agenix.packages.x86_64-linux.default ];
 
   age = {
     secrets = if pathExists secretsFile then

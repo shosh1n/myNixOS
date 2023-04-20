@@ -1,5 +1,5 @@
   let 
-   key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIClElwl33CnzGzW6IEcPsbwdqAkDFhst/TzUZUGMwwTb shoshin";
+   key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJKFmXmnKqwP7SlR7epj8Y3xQQXTRrZZn+/8uWBumpI hermannschris@googlemail.com";
 
 in
   {
