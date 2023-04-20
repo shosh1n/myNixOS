@@ -7,6 +7,6 @@
     address = "0.0.0.0";
     mediaDir = "/data/media/docs/paperless";
     consumptionDir = "/data/media/docs/consume";
-    #passwordFile = config.age.secrets.paperlessAuth.path;
+    passwordFile = "../secrets/paperlessauth.age";
   };
 }
