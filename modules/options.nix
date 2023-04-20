@@ -71,17 +71,16 @@ with lib.my;
 
     users.users.${config.user.name} = mkAliasDefinitions options.user;
 
-    nix.settings = let users = [ "root" config.user.name ]; in {
-      trusted-users = users;
-      allowed-users = users;
+    nix = let users = [ "root" config.user.name ]; in {
+      settings.trusted-users = users;
+      settings.allowed-users = users;
     };
 
     # must already begin with pre-existing PATH. Also, can't use binDir here,
     # because it contains a nix store path.
     env.PATH = [ "$DOTFILES_BIN" "$XDG_BIN_HOME" "$PATH" ];
 
-    environment.extraInit =
-      concatStringsSep "\n"
-        (mapAttrsToList (n: v: "export ${n}=\"${v}\"") config.env);
+    environment.extraInit = concatStringsSep "\n"
+        (mapAttrsToList (n: v: ''export ${n}="${v}"'') config.env);
   };
 }
