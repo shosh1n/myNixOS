@@ -1,27 +1,20 @@
 { config, lib, ... }:
 
-with builtins;
 with lib;
-let blocklist = fetchurl https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts;
-in {
+  {
+    networking.hosts = let
+      hostConfig =
+      {
+        "192.168.1.216" = [ "shoshin" ];
+      };
+      hosts = flatten (attrValues hostConfig);
+      hostName = config.networking.hostName;
+    in mkIf (builtins.elem hostName hosts) hostConfig;
 
 
-  ## Location config -- since Toronto is my 127.0.0.1
+
   time.timeZone = mkDefault "Europe/Berlin";
 
- # i18n.extraLocaleSettings = mkDefault{
- #   LC_ADDRESS = "en_US.utf8";
- #   LC_IDENTIFICATION = "en_US.utf8";
- #   LANGUAGE = "en_US.utf8";
- #   LC_MEASUREMENT = "en_US.utf8";
- #   LC_MONETARY = "en_US.utf8";
- #   LC_NAME = "en_US.utf8";
- #   LC_NUMERIC = "en_US.utf8";
- #   LC_PAPER = "en_US.utf8";
- #   LC_TELEPHONE = "en_US.utf8";
- #   LC_TIME = "en_US.utf8";
- #   LC_ALL = "en_US.utf8";
- # };
 
   console = {
     font = "Lat2-Terminus16";
