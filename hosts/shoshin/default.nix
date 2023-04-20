@@ -14,6 +14,7 @@
   imports = [
     ../home.nix
     ./hardware-configuration.nix
+    ./modules/paperless.nix
   ];
 
    modules = {
@@ -93,18 +94,6 @@
 	   theme.active = "alucard";
    };
 
-
-
-  services.paperless = {
-    address = "0.0.0.0";
-    mediaDir = "/data/media/docs/paperless";
-    consumptionDir = "/data/media/docs/consume";
-    passwordFile = "/secrets/paperlessAuth.age";
-    extraConfig.PAPERLESS_OCR_LANGUAGE = "deu+eng";
-  };
-  systemd.services.paperless-scheduler.after = ["var-lib-paperless.mount"];
-  systemd.services.paperless-consumer.after = ["var-lib-paperless.mount"];
-  systemd.services.paperless-web.after = ["var-lib-paperless.mount"];
 
 
 
