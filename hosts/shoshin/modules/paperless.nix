@@ -7,6 +7,6 @@
     address = "0.0.0.0";
     mediaDir = "/data/media/docs/paperless";
     consumptionDir = "/data/media/docs/consume";
-    passwordFile = "../secrets/paperlessauth.age";
+    passwordFile = "/home/shoshin/.setup/hosts/shoshin/secrets/paperlessauth.age";
   };
 }
