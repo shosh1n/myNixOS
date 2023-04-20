@@ -99,7 +99,11 @@
     address = "0.0.0.0";
     mediaDir = "/data/media/docs/paperless";
     consumptionDir = "/data/media/docs/consume";
+    extraConfig.PAPERLESS_OCR_LANGUAGE = "deu+eng";
   };
+  systemd.services.paperless-scheduler.after = ["var-lib-paperless.mount"];
+  systemd.services.paperless-consumer.after = ["var-lib-paperless.mount"];
+  systemd.services.paperless-web.after = ["var-lib-paperless.mount"];
 
 
 
