@@ -10,7 +10,7 @@ let inherit (inputs) agenix;
     secretsFile = "${secretsDir}/secrets.nix";
 in {
   imports = [ agenix.nixosModules.age ];
-  environment.systemPackages = [ agenix.packages.x86_64-linux.default ];
+  environment.systemPackages = [ agenix.default.x86_64-linux ];
 
   age = {
     secrets =
