@@ -4,11 +4,17 @@
   inputs = 
   {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    
     nixpkgs-unstable.url = "nixpkgs/nixpkgs-unstable";
+    
     flake-utils.url = "github:numtide/flake-utils";
+    
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    
     emacs-overlay.url = "github:nix-community/emacs-overlay";
+    
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+
     home-manager = {
       url = github:nix-community/home-manager/;
       inputs.nixpkgs.follows = "nixpkgs";
@@ -19,6 +25,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
   
+    agenix.url = "github:ryantm/agenix";
+    agenix.inputs.nixpkgs.follows = "nixpkgs";
+
+
+
   #End of Inputs
   };
 
