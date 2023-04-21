@@ -14,6 +14,10 @@
   imports = [
     ../home.nix
     ./hardware-configuration.nix
+    #./modules/vaultwarden.nix
+    ./modules/metrics.nix
+    #./modules/shlink.nix
+    #./modules/cgit.nix
     ./modules/paperless.nix
   ];
 
