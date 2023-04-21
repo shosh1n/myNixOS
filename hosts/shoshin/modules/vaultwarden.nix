@@ -18,7 +18,7 @@
     };
   };
 
-  services.nginx.virtualHosts."vault.cherma.net" = {
+  services.nginx.virtualHosts."vault.cherma.org" = {
     http2 = true;
     forceSSL = true;
     enableACME = true;

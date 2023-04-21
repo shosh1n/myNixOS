@@ -93,6 +93,8 @@
        paperless.enable = true;
        #gpg-agent.enable = false;
        docker.enable = true;
+       nginx.enable = true;
+       fail2ban.enable = true;
      };
 
 	   theme.active = "alucard";
