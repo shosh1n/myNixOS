@@ -17,7 +17,7 @@
     #./modules/vaultwarden.nix
     #./modules/metrics.nix
     #./modules/shlink.nix
-    ./modules/gitea.nix
+    ./modules/cgit.nix
     ./modules/paperless.nix
   ];
 
@@ -91,6 +91,7 @@
      {
        ssh.enable = true;
        paperless.enable = true;
+       #cgit.enable = false;
        #gpg-agent.enable = false;
        docker.enable = true;
        nginx.enable = true;
