@@ -15,9 +15,9 @@
     ../home.nix
     ./hardware-configuration.nix
     #./modules/vaultwarden.nix
-    ./modules/metrics.nix
+    #./modules/metrics.nix
     #./modules/shlink.nix
-    #./modules/cgit.nix
+    ./modules/gitea.nix
     ./modules/paperless.nix
   ];
 
@@ -94,7 +94,7 @@
        #gpg-agent.enable = false;
        docker.enable = true;
        nginx.enable = true;
-       fail2ban.enable = true;
+       fail2ban.enable = false;
      };
 
 	   theme.active = "alucard";
@@ -128,13 +128,32 @@
     };
     };
 
+  services.nginx = {
+    # Make it easier to whitelist by country on some virtualhosts
+
+
+    # nginx hosts
+    virtualHosts."home.cherma.org" = {
+      default = true;
+      http2 = true;
+      forceSSL = true;
+      enableACME = true;
+      root = "/srv/www/home.cherma.org";
+      # extraConfig = ''
+      #   client_max_body_size 10m;
+      #   proxy_buffering off;
+      #   proxy_redirect off;
+      # '';
+      # locations."/".proxyPass = "http://kiiro:8000";
+    };
+  };
 
 
  
   
   programs.ssh.startAgent = true;
   networking.networkmanager.enable = true;
-
+  security.acme.defaults.email = "hermannschris@googlemail.com";
   # Bootloader.
   boot =
   {

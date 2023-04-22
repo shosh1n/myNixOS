@@ -8,7 +8,7 @@ in {
   ### Grafana
   user.extraGroups = [ "grafana" ];
   services.grafana = {
-    enable = true;
+    enable = false;
     domain = "stats.cherma.org";
   };
   services.nginx.virtualHosts = {
@@ -18,7 +18,7 @@ in {
       enableACME = true;
       extraConfig = ''if ($deny) { return 503; }'';
       locations."/" = {
-        proxyPass = "http://127.0.0.1:${toString config.services.grafana.port}";
+        proxyPass = "http://127.0.0.0:${toString config.services.grafana.settings.server.http_port}";
         proxyWebsockets = true;
       };
     };
@@ -27,7 +27,7 @@ in {
 
   ### Collectors
   services.prometheus = {
-    enable = true;
+    enable = false;
     port = prometheusPort;
     exporters.node = {
       enable = true;
@@ -40,7 +40,7 @@ in {
         static_configs = [
           {
             targets = [
-              "127.0.0.1:${toString prometheusNodePort}"
+              "127.0.0.0:${toString prometheusNodePort}"
               # "10.1.0.2:${toString prometheusNodePort}"
             ];
           }
@@ -51,8 +51,8 @@ in {
         static_configs = [
           {
             targets = [
-              "192.168.1.216:${toString prometheusNodePort}"
-              #"10.1.0.11:${toString prometheusNodePort}"
+              "10.1.0.10:${toString prometheusNodePort}"
+              "10.1.0.11:${toString prometheusNodePort}"
             ];
           }
         ];
@@ -61,7 +61,7 @@ in {
   };
 
   services.loki = {
-    enable = true;
+    enable = false;
     configuration = {
       auth_enabled = false;
       server = {
@@ -112,7 +112,7 @@ in {
     };
   };
   services.promtail = {
-    enable = true;
+    enable = false;
     configuration = {
       server = {
         http_listen_port = 28183;

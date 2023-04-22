@@ -65,4 +65,9 @@
 
   # So we don't have to do this later...
   security.acme.acceptTerms = true;
+  #security.acme.certs = {
+  #  "stats.cherma.org" = {
+  #    email = "hermannschris@googlemail.com";
+  #  };
+  #};
   }
