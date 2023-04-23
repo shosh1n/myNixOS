@@ -28,6 +28,7 @@
        awesomewm.enable = false;
        xmonad.enable = true;
        bspwm.enable = false;
+       wayland.enable = false;
 
        apps =
        {
