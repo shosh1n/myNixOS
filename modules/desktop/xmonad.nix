@@ -22,11 +22,20 @@ in {
       redshift.enable = true;
       xserver = {
         enable = true;
+          libinput = {
+            enable = true;
+          };
+          layout = "de";
+
         displayManager = {
           defaultSession = "none+xmonad";
           lightdm.enable = true;
           lightdm.greeters.mini.enable = true;
         };
+
+
+
+
 
 
 

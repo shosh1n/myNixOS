@@ -16,6 +16,7 @@
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
 
     hyprland.url = "github:hyprwm/Hyprland";
+    hyprland.inputs.nixpkgs.follows = "nixpkgs";
 
     home-manager = {
       url = github:nix-community/home-manager/;

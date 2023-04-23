@@ -17,6 +17,21 @@
       XDG_CONFIG_HOME = "$HOME/.config";
       XDG_DATA_HOME   = "$HOME/.local/share";
       XDG_BIN_HOME    = "$HOME/.local/bin";
+      WLR_DRM_NO_ATOMIC = "1";
+      LIBVA_DRIVER_NAME = "nvidia";
+      MOZ_DISABLE_RDD_SANDBOX = "1";
+      EGL_PLATFORM = "wayland";
+      EDITOR = "nvim";
+      TERMINAL = "stx";
+      BROWSER = "firefox";
+      QT_QPA_PLATFORMTHEME = "gtk3";
+      QT_SCALE_FACTOR = "1";
+      SDL_VIDEODRIVER = "wayland";
+      _JAVA_AWT_WM_NONREPARENTING = "1";
+      QT_QPA_PLATFORM = "wayland";
+      CLUTTER_BACKEND = "wayland";
+      __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+      WLR_RENDERER = "vulkan";
     };
     variables = {
       # Conform more programs to XDG conventions. The rest are handled by their

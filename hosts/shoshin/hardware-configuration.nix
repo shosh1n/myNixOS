@@ -12,7 +12,7 @@
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd v4l2loopback" ];
   boot.extraModulePackages = [config.boot.kernelPackages.v4l2loopback];
-  boot.kernelParams = ["psmouse.synaptics_intertouch=0"];
+  boot.kernelParams = ["psmouse.synaptics_intertouch=0" "nvidia-drm.modeset=1"];
   
 
 
