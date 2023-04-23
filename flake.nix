@@ -1,4 +1,4 @@
-{
+
   description = "A very basic flake";
  
   inputs = 
@@ -14,6 +14,8 @@
     emacs-overlay.url = "github:nix-community/emacs-overlay";
     
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+
+    hyprland.url = "github:hyprwm/Hyprland";
 
     home-manager = {
       url = github:nix-community/home-manager/;
@@ -33,7 +35,7 @@
   #End of Inputs
   };
 
-  outputs = inputs @ { self, nixpkgs, nixos-hardware, home-manager, nixgl, flake-utils, nixpkgs-unstable, ...} :
+  outputs = inputs @ { self, emacs-overlay, nixpkgs, nixos-hardware, home-manager, nixgl, neovim-nightly-overlay, hyprland ,flake-utils, nixpkgs-unstable, ...} :
     let
       inherit (lib.my) mapModules mapModulesRec mapHosts;
 
