@@ -2,10 +2,10 @@
 
 with lib;
 with lib.my;
-let cfg = config.modules.desktop.wayland;
+let cfg = config.modules.desktop.hyprland;
     configDir = config.dotfiles.configDir;
 in {
-  options.modules.desktop.wayland = {
+  options.modules.desktop.hyprland= {
     enable = mkBoolOpt false;
   };
 
@@ -17,9 +17,7 @@ in {
     ];
 
 
-      wayland = {
-        enable = true;
-        windowManager.hyprland = {
+    wayland.windowManager.hyprland = {
           enable = true;
           xwayland = {
             enable = true;
