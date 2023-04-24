@@ -11,7 +11,7 @@ in {
 
   config = mkIf cfg.enable {
     home-manager.users.shoshin = {
-      wayland.windowManager.hyprland.enable = true;
+      programgs.hyprland.enable = true;
       systemd.user.targets.hyprland-session.Unit.Wants = [ "xdg-desktop-autostart.target" ];
      ## wayland.windowManager.hyprland = {
      ##   systemdIntegration = true;
