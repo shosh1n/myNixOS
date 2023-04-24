@@ -36,7 +36,7 @@
   #End of Inputs
   };
 
-  outputs = inputs @ { self, nixpkgs, nixos-hardware, home-manager, nixgl, neovim-nightly-overlay, hyprland ,flake-utils, nixpkgs-unstable, ...} :
+  outputs = inputs @ { self, nixpkgs, nixpkgs-unstable, ...} :
     let
       inherit (lib.my) mapModules mapModulesRec mapHosts;
 
@@ -51,15 +51,14 @@
 
       pkgs = mkPkgs nixpkgs [ self.overlay ];
       pkgs' = mkPkgs nixpkgs-unstable [ ];
-      hype = mkPkgs hyprland[];
-      lib = nixpkgs.lib.extend 
+      lib = nixpkgs.lib.extend
         (self: super: { my = import ./lib { inherit pkgs inputs; lib = self; }; });
 
 
       #user = "shoshin";
       #location = "$Home/.setup";
       #trustedUsers = ["root" "shoshin"];
-      nixosConfigurations.user = nixpkgs.lib.nixosSystem { modules = [hyprland.nixosModules.default nixos-hardware.nixosModules.lenovo-legion-15ach6]; };
+      #nixosConfigurations.user = nixpkgs.lib.nixosSystem { modules = [hyprland.nixosModules.default nixos-hardware.nixosModules.lenovo-legion-15ach6]; };
   in 
   {
     lib = lib.my;

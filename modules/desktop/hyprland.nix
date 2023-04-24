@@ -5,14 +5,14 @@ with lib.my;
 let cfg = config.modules.desktop.hyprland;
     configDir = config.dotfiles.configDir;
 in {
+  imports = [inputs.hyprland.homeManagerModules.default];
   options.modules.desktop.hyprland= {
     enable = mkBoolOpt false;
   };
 
   config = mkIf cfg.enable {
-    home-manager.users.shoshin = {
-      programgs.hyprland.enable = true;
-      systemd.user.targets.hyprland-session.Unit.Wants = [ "xdg-desktop-autostart.target" ];
+    home-manager.users.shoshin.wayland.windowManager.hyprland.enable = true;
+     # systemd.user.targets.hyprland-session.Unit.Wants = [ "xdg-desktop-autostart.target" ];
      ## wayland.windowManager.hyprland = {
      ##   systemdIntegration = true;
      ##   extraConfig =''
@@ -32,5 +32,4 @@ in {
      ##   '';
      ## };
     };
-  };
 }

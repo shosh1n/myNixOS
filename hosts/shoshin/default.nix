@@ -26,9 +26,9 @@
      desktop =
      {
        awesomewm.enable = false;
-       xmonad.enable = true;
+       xmonad.enable = false;
        bspwm.enable = false;
-       hyprland.enable = false;
+       hyprland.enable = true;
 
        apps =
        {
