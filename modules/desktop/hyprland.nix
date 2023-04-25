@@ -20,7 +20,7 @@ in {
 
   config = mkIf cfg.enable {
     #nixpkgs.overlays = [inputs.hyprland.overlay];
-      home-manager.users.shoshin.wayland.windowManager.hyprland.enable = true;
+      #programs.hyprland.enable = true;
 
 
 
