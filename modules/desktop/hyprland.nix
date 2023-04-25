@@ -12,15 +12,15 @@ let cfg = config.modules.desktop.hyprland;
 in {
 #  meta.maintainers = [lib.maintainers.fufexan];
   #disabledModules = ["programs/hyprland.nix"];
-  imports = [inputs.hyprland.homeManagerModules.default];
+  #imports = [inputs.hyprland.homeManagerModules.default];
 
-  options.modules.desktop.hyprland= {
-    enable = mkBoolOpt false;
-   };
+ # options.modules.desktop.hyprland= {
+ #   enable = mkBoolOpt false;
+ #  };
 
   config = mkIf cfg.enable {
     #nixpkgs.overlays = [inputs.hyprland.overlay];
-      #home-manager.users.shoshin.wayland.windowManager.hyprland.enable = true;
+      home-manager.users.shoshin.wayland.windowManager.hyprland.enable = true;
 
 
 

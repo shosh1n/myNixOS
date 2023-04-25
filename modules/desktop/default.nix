@@ -4,8 +4,8 @@ with lib;
 with lib.my;
 let cfg = config.modules.desktop;
 in {
-  config = mkIf configafsdfewfawef.enable {
-
+  #config = mkIf config.programs.hyprland.enable {
+  config = mkIf config.home-manager.users.shoshin.wayland.windowManager.hyprland.enable{
     user.packages = with pkgs; [
       feh       # image viewer
       xclip
