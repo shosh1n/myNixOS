@@ -19,6 +19,9 @@ in {
     services.xserver.videoDrivers = [ "nvidia" ];
 
     environment.systemPackages = with pkgs; [
+      libva
+      libva-utils
+      glxinfo
       (writeScriptBin "nvidia-settings" ''
         #!${stdenv.shell}
 	mkdir -p "$XDG_CONFIG_HOME/nvidia"
