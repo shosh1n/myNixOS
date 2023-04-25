@@ -1,17 +1,35 @@
-  { options,inputs, config, lib, pkgs, ... }:
+  { options, inputs, config, lib, pkgs, ... }:
 
 with lib;
 with lib.my;
 let cfg = config.modules.desktop.hyprland;
-    configDir = config.dotfiles.configDir;
+  defaultHyprlandPackage = self.packages.${pkgs.stdenv.hostPlatform.system}.default.override {
+    enableXWayland = cfg.xwayland.enable;
+    hidpiXWayland = cfg.xwayland.hidpi;
+    inherit (cfg) nvidiaPatches;
+    };
+
 in {
-  imports = [inputs.hyprland.homeManagerModules.default];
-  options.modules.desktop.hyprland= {
-    enable = mkBoolOpt false;
-  };
+#  meta.maintainers = [lib.maintainers.fufexan];
+  #disabledModules = ["programs/hyprland.nix"];
+  #imports = [inputs.hyprland.homeManagerModules.default];
+
+  #options.modules.desktop.hyprland= {
+  #  enable = mkBoolOpt false;
+  #};
 
   config = mkIf cfg.enable {
-    home-manager.users.shoshin.wayland.windowManager.hyprland.enable = true;
+    programs.hyperland.enable = true;
+
+
+
+
+
+
+    environment.systemPackages = with pkgs; [
+      nitrogen
+    ];
+ #   options.wayland.windowManager.hyprland.enable = true;
      # systemd.user.targets.hyprland-session.Unit.Wants = [ "xdg-desktop-autostart.target" ];
      ## wayland.windowManager.hyprland = {
      ##   systemdIntegration = true;

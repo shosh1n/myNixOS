@@ -4,19 +4,20 @@
   inputs = 
   {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    
     nixpkgs-unstable.url = "nixpkgs/nixpkgs-unstable";
-    
+
+    wlroots = {
+      url = "gitlab:wlroots/wlroots?host=gitlab.freedesktop.org";
+      flake = false;
+    };
+
+
+
     flake-utils.url = "github:numtide/flake-utils";
-    
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     
     emacs-overlay.url = "github:nix-community/emacs-overlay";
-    
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
-
-    hyprland.url = "github:hyprwm/Hyprland";
-    hyprland.inputs.nixpkgs.follows = "nixpkgs";
 
     home-manager = {
       url = github:nix-community/home-manager/;
@@ -31,12 +32,14 @@
     agenix.url = "github:ryantm/agenix";
     agenix.inputs.nixpkgs.follows = "nixpkgs";
 
+    hyprland.url = "github:hyprwm/Hyprland";
+    hyprland.inputs.nixpkgs.follows = "nixpkgs";
 
 
   #End of Inputs
   };
 
-  outputs = inputs @ { self, nixpkgs, nixpkgs-unstable, ...} :
+  outputs = inputs @ { self, nixpkgs, nixpkgs-unstable, hyprland, ...} :
     let
       inherit (lib.my) mapModules mapModulesRec mapHosts;
 
@@ -50,7 +53,7 @@
       };
 
       pkgs = mkPkgs nixpkgs [ self.overlay ];
-      pkgs' = mkPkgs nixpkgs-unstable [ ];
+      pkgs' = mkPkgs nixpkgs-unstable [];
       lib = nixpkgs.lib.extend
         (self: super: { my = import ./lib { inherit pkgs inputs; lib = self; }; });
 

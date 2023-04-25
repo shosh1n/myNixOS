@@ -18,18 +18,15 @@
     #./modules/metrics.nix
     #./modules/shlink.nix
     ./modules/cgit.nix
-    ./modules/paperless.nix
+    #./modules/paperless.nix
   ];
-
    modules = {
-
      desktop =
      {
        awesomewm.enable = false;
-       xmonad.enable = false;
+       xmonad.enable = true;
        bspwm.enable = false;
        hyprland.enable = true;
-
        apps =
        {
 	       rofi.enable = true;
@@ -91,7 +88,7 @@
      services =
      {
        ssh.enable = true;
-       paperless.enable = true;
+       paperless.enable = false;
        #cgit.enable = false;
        #gpg-agent.enable = false;
        docker.enable = true;
