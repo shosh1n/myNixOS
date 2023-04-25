@@ -39,7 +39,7 @@
   #End of Inputs
   };
 
-  outputs = inputs @ { self, nixpkgs, nixpkgs-unstable, hyprland, ...} :
+  outputs = inputs @ { self, nixpkgs, nixpkgs-unstable, ...} :
     let
       inherit (lib.my) mapModules mapModulesRec mapHosts;
 

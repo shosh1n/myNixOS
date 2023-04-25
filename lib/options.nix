@@ -1,7 +1,7 @@
 { lib, ... }:
 
 let
-  inherit (lib) mkOption types;
+  inherit (lib) mkOption types; #calls 'mkOption' and 'types' from the functions defined in (lib)
 in
 rec {
   mkOpt  = type: default:

@@ -4,7 +4,7 @@ with lib;
 with lib.my;
 let cfg = config.modules.desktop;
 in {
-  config = mkIf config.programs.hyprland.enable {
+  config = mkIf configafsdfewfawef.enable {
 
     user.packages = with pkgs; [
       feh       # image viewer

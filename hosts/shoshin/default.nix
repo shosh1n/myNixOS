@@ -17,14 +17,14 @@
     #./modules/vaultwarden.nix
     #./modules/metrics.nix
     #./modules/shlink.nix
-    ./modules/cgit.nix
+    #./modules/cgit.nix
     #./modules/paperless.nix
   ];
    modules = {
      desktop =
      {
        awesomewm.enable = false;
-       xmonad.enable = true;
+       xmonad.enable = false;
        bspwm.enable = false;
        hyprland.enable = true;
        apps =

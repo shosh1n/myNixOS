@@ -3,23 +3,24 @@
 with lib;
 with lib.my;
 let cfg = config.modules.desktop.hyprland;
-  defaultHyprlandPackage = self.packages.${pkgs.stdenv.hostPlatform.system}.default.override {
-    enableXWayland = cfg.xwayland.enable;
-    hidpiXWayland = cfg.xwayland.hidpi;
-    inherit (cfg) nvidiaPatches;
-    };
+    #defaultHyprlandPackage = self.packages.${pkgs.stdenv.hostPlatform.system}.default.override {
+    #enableXWayland = cfg.xwayland.enable;
+    #hidpiXWayland = cfg.xwayland.hidpi;
+    #inherit (cfg) nvidiaPatches;
+    #};
 
 in {
 #  meta.maintainers = [lib.maintainers.fufexan];
   #disabledModules = ["programs/hyprland.nix"];
-  #imports = [inputs.hyprland.homeManagerModules.default];
+  imports = [inputs.hyprland.homeManagerModules.default];
 
-  #options.modules.desktop.hyprland= {
-  #  enable = mkBoolOpt false;
-  #};
+  options.modules.desktop.hyprland= {
+    enable = mkBoolOpt false;
+   };
 
   config = mkIf cfg.enable {
-    programs.hyperland.enable = true;
+    #nixpkgs.overlays = [inputs.hyprland.overlay];
+      wayland.windowManager.hyprland.enable = true;
 
 
 
