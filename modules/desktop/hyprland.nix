@@ -29,8 +29,9 @@ in {
         enable = true;
         hidpi = true;
       };
-  
+
     nvidiaPatches = true;
+    };
 
      #environment.systemPackages = with pkgs;  [nitrogen ];
  #   options.wayland.windowManager.hyprland.enable = true;
@@ -52,6 +53,6 @@ in {
 
      ##   bind = $mainMod, Return, exec, xst zsh
      ##   '';
-	 };
+
   };
 }

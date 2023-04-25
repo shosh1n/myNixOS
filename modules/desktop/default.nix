@@ -20,7 +20,8 @@ in {
 
     env.packages = with pkgs;[
       waybar
-    ];
+      libnotify
+          ];
 
 
 
@@ -52,6 +53,11 @@ in {
       networkmanagerapplet
       xdotool
       xorg.xwininfo
+      #grimshot
+      hyprpicker
+      swaylock-effects
+      pamixer
+
       libqalculate  # calculator cli w/ currency conversion
       (makeDesktopItem {
         name = "scratch-calc";
@@ -74,7 +80,11 @@ in {
       ];
     };
 
-
+    home.configFile = {
+      "xtheme/90-theme".source = ../themes/alucard/config/Xresources;
+      "rofi/theme" = { source = ../themes/alucard/config/rofi; recursive = true;};
+      #"dunst/dunstrc".text = import ../themes/alucard/config/dunstrc cfg;
+    };
 
      home-manager.users.shoshin = {
     # Home-manager waybar config

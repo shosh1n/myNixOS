@@ -53,7 +53,7 @@ in {
           ];
 	};
       };
-    }
+  }
 
     # Desktop (X11) theming
     (mkIf config.services.xserver.enable {
