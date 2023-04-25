@@ -14,22 +14,25 @@ in {
   #disabledModules = ["programs/hyprland.nix"];
   #imports = [inputs.hyprland.homeManagerModules.default];
 
- # options.modules.desktop.hyprland= {
- #   enable = mkBoolOpt false;
- #  };
+  options.modules.desktop.hyprland= {
+    enable = mkBoolOpt false;
+   };
 
   config = mkIf cfg.enable {
+    #systemd.user.targets.hyprland-session.Unit.Wants = [ "xdg-desktop-autostart.target" ];
     #nixpkgs.overlays = [inputs.hyprland.overlay];
-      #programs.hyprland.enable = true;
+    programs.hyprland = {
+      enable = true;
+      #package = hyprland.packages.${pkgs.system}.default;
+      xwayland = {
+        enable = true;
+        hidpi = true;
+      };
+  
 
 
 
-
-
-
-    environment.systemPackages = with pkgs; [
-      nitrogen
-    ];
+     #environment.systemPackages = with pkgs;  [nitrogen ];
  #   options.wayland.windowManager.hyprland.enable = true;
      # systemd.user.targets.hyprland-session.Unit.Wants = [ "xdg-desktop-autostart.target" ];
      ## wayland.windowManager.hyprland = {
@@ -49,6 +52,6 @@ in {
 
      ##   bind = $mainMod, Return, exec, xst zsh
      ##   '';
-     ## };
-    };
+	 };
+  };
 }
