@@ -12,8 +12,10 @@
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd v4l2loopback" ];
   boot.extraModulePackages = [config.boot.kernelPackages.v4l2loopback];
-  boot.kernelParams = ["psmouse.synaptics_intertouch=0" "nvidia-drm.modeset=1"];
-  
+  boot.kernelParams = ["quit"
+                       "splash"
+                       "psmouse.synaptics_intertouch=0"
+                       "nvidia-drm.modeset=1"];
 
 
 
@@ -26,20 +28,6 @@
     bluetooth.enable = true;
     razer.enable = true;
     };
-
-
-  services.xserver = {
-   libinput = {
-     enable = true;
-     };
-   layout = "de";
-  };
-  console.useXkbConfig = true;
-
-
-
-
-
 
 
   fileSystems."/" =

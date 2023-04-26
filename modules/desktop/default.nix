@@ -6,6 +6,15 @@ let cfg = config.modules.desktop;
 in {
   config = mkIf config.programs.hyprland.enable {
 
+    services.greetd = {
+      enable = true;
+      settings = {
+        default_session = {
+          command = "${pkgs.greetd.greetd}/bin/agreety --cmd Hyprland";
+        };
+      };
+    };
+
     programs.dconf.enable = true;
     programs.light.enable = true;
     programs = {
@@ -20,7 +29,7 @@ in {
 
     env.packages = with pkgs;[
       waybar
-      libnotify
+      mako
           ];
 
 
@@ -44,7 +53,6 @@ in {
   #    enable = true;
   # };
 
-
     security.pam.services.swaylock = {};
 
     user.packages = with pkgs; [
@@ -57,7 +65,7 @@ in {
       hyprpicker
       swaylock-effects
       pamixer
-
+      cinnamon.nemo
       libqalculate  # calculator cli w/ currency conversion
       (makeDesktopItem {
         name = "scratch-calc";
@@ -69,6 +77,11 @@ in {
       qgnomeplatform        # QPlatformTheme for a better Qt application inclusion in GNOME
       libsForQt5.qtstyleplugin-kvantum # SVG-based Qt5 theme engine plus a config tool and extra theme
     ];
+
+    xdg.portal = {
+      enable = true;
+      wlr.enable = true;
+       };
 
     fonts = {
       fontDir.enable = true;
@@ -83,11 +96,28 @@ in {
     home.configFile = {
       "xtheme/90-theme".source = ../themes/alucard/config/Xresources;
       "rofi/theme" = { source = ../themes/alucard/config/rofi; recursive = true;};
+        #shell.zsh.rcFiles  = [ ../themes/alucard/config/zsh/prompt.zsh ];
+        #shell.tmux.rcFiles = [ ../themes/alucard/config/tmux.conf ];
       #"dunst/dunstrc".text = import ../themes/alucard/config/dunstrc cfg;
     };
 
      home-manager.users.shoshin = {
     # Home-manager waybar config
+       services.mako={
+         enable = true;
+        # defaultTimeout =  {
+        # default = 5;
+        # type = types.nullOr types.int;
+        # description = ''
+        #  Set the default timeout to timeout in milliseconds. To disable the
+        #  timeout, set it to zero.
+        #'';
+        #  };
+       };
+
+    programs.firefox.profiles.userChrome = concatMapStringsSep "\n" readFile [
+            ../themes/alucard/config/firefox/userChrome.css
+          ];
     programs.waybar = {
       enable = true;
       systemd = {
@@ -315,8 +345,8 @@ in {
           "interval" = 1;
           "format" = "{:%I:%M %p  %A %b %d}";
           "tooltip" = true;
-          /* "tooltip-format"= "{=%A; %d %B %Y}\n<tt>{calendar}</tt>" */
-          "tooltip-format" = "上午：高数\n下午：Ps\n晚上：Golang\n<tt>{calendar}</tt>";
+           "tooltip-format"= "{=%A; %d %B %Y}\n<tt>{calendar}</tt>";
+          #"tooltip-format" = "上午：高数\n下午：Ps\n晚上：Golang\n<tt>{calendar}</tt>";
         };
         "memory" = {
           "interval" = 1;
@@ -411,7 +441,7 @@ in {
               "format": "{:%I:%M %p  %A %b %d}",
               "interval": 1,
               "tooltip": true,
-              "tooltip-format": "上午：高数\n下午：Ps\n晚上：Golang\n<tt>{calendar}</tt>"
+              "tooltip-format"= "{=%A; %d %B %Y}\n<tt>{calendar}</tt>";
             },
             "cpu": {
               "format": " {usage}%",
@@ -713,7 +743,7 @@ in {
               "format": "{:%I:%M %p  %A %b %d}",
               "interval": 1,
               "tooltip": true,
-              "tooltip-format": "上午：高数\n下午：Ps\n晚上：Golang\n<tt>{calendar}</tt>"
+           "tooltip-format"= "{=%A; %d %B %Y}\n<tt>{calendar}</tt>";
             },
             "cpu": {
               "format": " {usage}%",
@@ -975,4 +1005,5 @@ in {
     };
   };
   };
+
 }

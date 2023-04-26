@@ -5,7 +5,7 @@ with lib.my;
 let cfg = config.modules.desktop.term;
 in {
   options.modules.desktop.term = {
-    default = mkOpt types.str "wezterm";
+    default = mkOpt types.str "xst";
   };
 
   config = {

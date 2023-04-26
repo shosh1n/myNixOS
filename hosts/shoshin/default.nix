@@ -41,7 +41,9 @@
 
        term =
        {
-        default = "xst";
+        default = "kitty";
+        wezterm.enable = false;
+        kitty.enable = true;
         st.enable = true;
        };
      
@@ -126,6 +128,8 @@
       Nice = 10;
     };
     };
+
+
 
   services.nginx = {
     # Make it easier to whitelist by country on some virtualhosts
