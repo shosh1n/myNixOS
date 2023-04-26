@@ -61,6 +61,7 @@ in {
       networkmanagerapplet
       xdotool
       xorg.xwininfo
+      my.swww
       #grimshot
       hyprpicker
       swaylock-effects
