@@ -3,6 +3,7 @@
 with lib;
 with lib.my;
 let cfg = config.modules.desktop.hyprland;
+    inherit (inputs) hyprland;
 configDir = config.dotfiles.configDir;
 in {
   options.modules.desktop.hyprland= {
@@ -12,7 +13,7 @@ in {
   config = mkIf cfg.enable {
     #systemd.user.targets.hyprland-session.Unit.Wants = [ "xdg-desktop-autostart.target" ];
     #nixpkgs.overlays = [inputs.hyprland.overlay];
-
+programs.hyprland.package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
     programs.hyprland = {
       enable = true;
       #package = hyprland.packages.${pkgs.system}.default;
@@ -27,7 +28,7 @@ in {
         temperature.night = 3400;
       };
    home.configFile = {
-     "hyprland.conf".source = "${configDir}/hyprland";
+     "hyprland.conf".source= "${configDir}/hypr";
    };
 
   };

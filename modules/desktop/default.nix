@@ -1,8 +1,9 @@
 { config, options, lib, pkgs ,... }:
-
+#this file is a mess, It needs to be split up in terms of functionalities!
 with lib;
 with lib.my;
 let cfg = config.modules.desktop;
+    wallDir = config.dotfiles.wallDir;
 in {
   config = mkIf config.programs.hyprland.enable {
 
@@ -31,9 +32,6 @@ in {
       waybar
       mako
           ];
-
-
-
   nixpkgs.overlays = [
     (final: prev: {
       waybar =

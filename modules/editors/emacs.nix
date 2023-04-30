@@ -28,7 +28,7 @@ in {
       binutils       # native-comp needs 'as', provided by this
       # 28.2 + native-comp
       ((emacsPackagesFor pkgs.emacs28).emacsWithPackages
-        (epkgs: [ epkgs.vterm ]))
+        (epkgs: [ epkgs.vterm epkgs.zmq]))
 
       ## Doom dependencies
       git
@@ -65,7 +65,7 @@ in {
       scrot
       gnuplot
       #required by + jupyter
-      (python3.withPackages (ps: with ps; [ jupyter ]))
+      (python310.withPackages (ps: with ps; [ jupyter ipykernel ]))
       #Roam
       anystyle-cli
       graphviz
@@ -88,7 +88,7 @@ in {
     modules.shell.zsh.rcFiles = [ "${configDir}/emacs/aliases.zsh" ];
 
     fonts.fonts = [ pkgs.emacs-all-the-icons-fonts ];
-
+    #services.emacs.enable = true;
     system.userActivationScripts = mkIf cfg.doom.enable {
       installDoomEmacs = ''
         if [ ! -d "$XDG_CONFIG_HOME/emacs" ]; then

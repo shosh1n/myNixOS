@@ -19,7 +19,7 @@ in {
   config = mkMerge [
     (mkIf cfg.enable {
       user.packages = with pkgs; [
-      	micromamba
+        micromamba
         python310
         python310Packages.pip
         python310Packages.ipython
@@ -33,7 +33,7 @@ in {
         py     = "python";
         py2    = "python2";
         py3    = "python3";
-        po     = "poetry";
+        po     = "poetry-core";
         ipy    = "ipython --no-banner";
         ipylab = "ipython --pylab=qt5 --no-banner";
       };

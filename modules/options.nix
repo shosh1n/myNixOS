@@ -17,6 +17,7 @@ with lib.my;
       configDir  = mkOpt path "${config.dotfiles.dir}/config";
       modulesDir = mkOpt path "${config.dotfiles.dir}/modules";
       themesDir  = mkOpt path "${config.dotfiles.modulesDir}/themes";
+      wallDir    = mkOpt path "${config.dotfiles.dir}/wallz/wallpaper.jpeg";
     };
 
     home = {

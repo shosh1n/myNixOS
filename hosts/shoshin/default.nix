@@ -31,6 +31,7 @@
        {
 	       rofi.enable = true;
 	       discord.enable = true;
+         swww.enable = true;
        };
 
        browsers =
@@ -77,6 +78,7 @@
 	     cc.enable = true;
 	     rust.enable = true;
 	     python.enable = true;
+       node.enable =  true;
      };
 
      editors =
