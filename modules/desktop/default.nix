@@ -1,4 +1,4 @@
-{ config, options, lib, pkgs ,... }:
+{ config, options, lib, pkgs , inputs,... }:
 #this file is a mess, It needs to be split up in terms of functionalities!
 with lib;
 with lib.my;
@@ -53,6 +53,10 @@ in {
 
     security.pam.services.swaylock = {};
 
+    modules ={
+
+    };
+
     user.packages = with pkgs; [
       feh       # image viewer
       xclip
@@ -95,9 +99,8 @@ in {
     home.configFile = {
       "xtheme/90-theme".source = ../themes/alucard/config/Xresources;
       "rofi/theme" = { source = ../themes/alucard/config/rofi; recursive = true;};
-        #shell.zsh.rcFiles  = [ ../themes/alucard/config/zsh/prompt.zsh ];
-        #shell.tmux.rcFiles = [ ../themes/alucard/config/tmux.conf ];
       #"dunst/dunstrc".text = import ../themes/alucard/config/dunstrc cfg;
+      #shell.zsh.rcFiles  = [ ../themes/alucard/config/zsh/prompt.zsh ];
     };
 
      home-manager.users.shoshin = {

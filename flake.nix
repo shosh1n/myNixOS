@@ -32,9 +32,12 @@
     agenix.url = "github:ryantm/agenix";
     agenix.inputs.nixpkgs.follows = "nixpkgs";
 
+    blender.url = "github:edolstra/nix-warez?dir=blender";
+
     hyprland.url = "github:hyprwm/Hyprland";
     hyprland.inputs.nixpkgs.follows = "nixpkgs";
 
+    hyprwm-contrib.url = "github:hyprwm/contrib";
 
   #End of Inputs
   };

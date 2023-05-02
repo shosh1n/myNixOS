@@ -55,6 +55,7 @@
 
        media =
        {
+         blender.enable = true;
          logseq.enable = true;
 	       ncmpcpp.enable = true;
 	       mpv.enable = true;

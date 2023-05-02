@@ -13,7 +13,6 @@ in {
   config = mkIf cfg.enable {
     #systemd.user.targets.hyprland-session.Unit.Wants = [ "xdg-desktop-autostart.target" ];
     #nixpkgs.overlays = [inputs.hyprland.overlay];
-programs.hyprland.package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
     programs.hyprland = {
       enable = true;
       #package = hyprland.packages.${pkgs.system}.default;
@@ -21,7 +20,7 @@ programs.hyprland.package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.
         enable = true;
         hidpi = true;
     };
-    nvidiaPatches = true;
+    nvidiaPatches = false;
     };
    services.redshift = {
         enable = true;
@@ -30,6 +29,9 @@ programs.hyprland.package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.
    home.configFile = {
      "hyprland.conf".source= "${configDir}/hypr";
    };
+   environment.systemPackages = with pkgs; [inputs.hyprwm-contrib.packages.${system}.grimblast slurp wl-clipboard];
+
+
 
   };
 }
