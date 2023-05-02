@@ -6,7 +6,6 @@ let cfg = config.modules.desktop.media.blender;
 in {
   options.modules.desktop.media.blender = {
     enable = mkBoolOpt false;
-    tui.enable = mkBoolOpt false; # TODO
   };
 
   config = mkIf cfg.enable {
