@@ -17,7 +17,7 @@ in {
     };
 
     programs.dconf.enable = true;
-    programs.light.enable = true;
+    programs.light.enable = false;
     programs = {
       zsh = {
       shellInit = ''
@@ -31,6 +31,7 @@ in {
     env.packages = with pkgs;[
       waybar
       mako
+      imv
           ];
   nixpkgs.overlays = [
     (final: prev: {
@@ -95,12 +96,11 @@ in {
         symbola
       ];
     };
-
     home.configFile = {
       "xtheme/90-theme".source = ../themes/alucard/config/Xresources;
       "rofi/theme" = { source = ../themes/alucard/config/rofi; recursive = true;};
       #"dunst/dunstrc".text = import ../themes/alucard/config/dunstrc cfg;
-      #shell.zsh.rcFiles  = [ ../themes/alucard/config/zsh/prompt.zsh ];
+
     };
 
      home-manager.users.shoshin = {

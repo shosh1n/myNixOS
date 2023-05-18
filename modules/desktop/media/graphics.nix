@@ -16,14 +16,14 @@ in {
     tools.enable = mkBoolOpt true;
     raster.enable = mkBoolOpt true;
     vector.enable = mkBoolOpt true;
-    sprites.enable = mkBoolOpt true;
+    sprites.enable = mkBoolOpt false;
   };
 
   config = mkIf cfg.enable {
     user.packages = with pkgs;
       (if cfg.tools.enable then [
-        font-manager # so many damned fonts...
-        imagemagick # for image manipulation from the shell
+        #font-manager # so many damned fonts...
+        #imagemagick # for image manipulation from the shell
       ] else
         [ ]) ++
 
@@ -32,21 +32,21 @@ in {
 
       # Replaces photoshop
       (if cfg.raster.enable then [
-        krita
+        #krita
         # FIXME https://github.com/NixOS/nixpkgs/issues/210098
          gimp
-         gimpPlugins.resynthesizer2 # content-aware scaling in gimp
+         #gimpPlugins.resynthesizer # content-aware scaling in gimp
       ] else
         [ ]) ++
 
       # Sprite sheets & animation
       (if cfg.sprites.enable then [ aseprite-unfree ] else [ ]);
 
-    home.configFile = mkIf cfg.raster.enable {
-      "GIMP/2.10" = {
-        source = "${configDir}/gimp";
-        recursive = true;
-      };
-    };
+    #home.configFile = mkIf cfg.raster.enable {
+     # "GIMP" = {
+     #   source = "${configDir}/gimp";
+      #  recursive = true;
+     # };
+    #};
   };
 }

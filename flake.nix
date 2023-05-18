@@ -5,7 +5,6 @@
   {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-unstable.url = "nixpkgs/nixpkgs-unstable";
-
     wlroots = {
       url = "gitlab:wlroots/wlroots?host=gitlab.freedesktop.org";
       flake = false;
@@ -20,7 +19,7 @@
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
 
     home-manager = {
-      url = github:nix-community/home-manager/;
+      url = "github:nix-community/home-manager/";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

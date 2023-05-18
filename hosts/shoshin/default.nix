@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{config, lib, pkgs, user,... }:
+{inputs,config, lib, pkgs, user,... }:
 
 
 
@@ -55,11 +55,13 @@
 
        media =
        {
+         graphics.enable = true;
          blender.enable = true;
          logseq.enable = true;
 	       ncmpcpp.enable = true;
 	       mpv.enable = true;
          spotify.enable = true;
+         blog.enable = true;
        };
      };
 
@@ -80,6 +82,7 @@
 	     rust.enable = true;
 	     python.enable = true;
        node.enable =  true;
+       go.enable = true;
      };
 
      editors =
@@ -134,32 +137,32 @@
 
 
 
-  services.nginx = {
-    # Make it easier to whitelist by country on some virtualhosts
+ # services.nginx = {
+ #   # Make it easier to whitelist by country on some virtualhosts
 
 
-    # nginx hosts
-    virtualHosts."home.cherma.org" = {
-      default = true;
-      http2 = true;
-      forceSSL = true;
-      enableACME = true;
-      root = "/srv/www/home.cherma.org";
-      # extraConfig = ''
-      #   client_max_body_size 10m;
-      #   proxy_buffering off;
-      #   proxy_redirect off;
-      # '';
-      # locations."/".proxyPass = "http://kiiro:8000";
-    };
-  };
+ #   # nginx hosts
+ #   virtualHosts."home.cherma.org" = {
+ #     default = true;
+ #     http2 = true;
+ #     forceSSL = true;
+ #     enableACME = true;
+ #     root = "/srv/www/home.cherma.org";
+ #     # extraConfig = ''
+ #     #   client_max_body_size 10m;
+ #     #   proxy_buffering off;
+ #     #   proxy_redirect off;
+ #     # '';
+ #     # locations."/".proxyPass = "http://kiiro:8000";
+ #   };
+ # };
 
 
- 
-  
+      # ...
+  #user.packages = with nixpkgs  ;[ inputs.nixos-hardware.nixosModules.lenovo-legion-15ach6];
   programs.ssh.startAgent = true;
   networking.networkmanager.enable = true;
-  security.acme.defaults.email = "hermannschris@googlemail.com";
+  #security.acme.defaults.email = "hermannschris@googlemail.com";
   # Bootloader.
   boot =
   {

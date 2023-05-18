@@ -1,4 +1,4 @@
-{ options, config, lib, pkgs, ...}:
+{ options, config, lib, pkgs,inputs, ...}:
 
 with lib;
 with lib.my;
@@ -15,10 +15,15 @@ in {
       driSupport = true;
       driSupport32Bit = true;
     };
+    hardware.nvidia = {
+      modesetting.enable = true;
+      prime.offload.enable = false;
+      prime.nvidiaBusId = "PCI:1:0:0";
+    };
 
     services.xserver.videoDrivers = [ "nvidia" ];
-
     environment.systemPackages = with pkgs; [
+      nvtop-nvidia
       libva
       libva-utils
       glxinfo

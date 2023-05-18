@@ -20,22 +20,24 @@ in {
     (mkIf cfg.enable {
       user.packages = with pkgs; [
         micromamba
-        python310
-        python310Packages.pip
-        python310Packages.ipython
-        python310Packages.black
-        python310Packages.setuptools
-        python310Packages.pylint
-        python310Packages.poetry-core
+        #python3
+        python3Packages.pip
+        python3Packages.ipython
+        python3Packages.black
+        python3Packages.setuptools
+        python3Packages.pylint
+        poetry
+        #python39Packages.jupyterlab
       ];
 
       environment.shellAliases = {
         py     = "python";
         py2    = "python2";
         py3    = "python3";
-        po     = "poetry-core";
+        po     = "poetry";
         ipy    = "ipython --no-banner";
         ipylab = "ipython --pylab=qt5 --no-banner";
+        mm     = "micromamba";
       };
     })
 
@@ -48,6 +50,7 @@ in {
       env.PYTHONSTARTUP   = "$XDG_CONFIG_HOME/python/pythonrc";
       env.PYTHON_EGG_CACHE = "$XDG_CACHE_HOME/python-eggs";
       env.JUPYTER_CONFIG_DIR = "$XDG_CONFIG_HOME/jupyter";
+      env.MAMBA_ROOT_PREFIX = "$XDG_DATA_HOME/mamba";
     })
   ];
 }

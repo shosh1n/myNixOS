@@ -27,8 +27,8 @@ in {
       ## Emacs itself
       binutils       # native-comp needs 'as', provided by this
       # 28.2 + native-comp
-      ((emacsPackagesFor pkgs.emacs28).emacsWithPackages
-        (epkgs: [ epkgs.vterm epkgs.zmq]))
+      ((emacsPackagesFor emacsUnstable).emacsWithPackages
+        (epkgs: [ epkgs.vterm ]))
 
       ## Doom dependencies
       git
@@ -65,7 +65,7 @@ in {
       scrot
       gnuplot
       #required by + jupyter
-      (python310.withPackages (ps: with ps; [ jupyter ipykernel ]))
+      (python3.withPackages (ps: with ps; [ jupyter]))
       #Roam
       anystyle-cli
       graphviz
