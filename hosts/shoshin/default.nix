@@ -62,6 +62,7 @@
 	       mpv.enable = true;
          spotify.enable = true;
          blog.enable = true;
+         documents.enable = true;
        };
      };
 
