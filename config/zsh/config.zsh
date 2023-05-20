@@ -15,6 +15,14 @@ export ZGEN_AUTOLOAD_COMPINIT=0
 export ZVM_INIT_MODE=sourcing
 export ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
 
+#fcitx
+export INPUT_METHOD=fcitx
+export QT_IM_MODULE=fcitx
+export GTK_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
+export XIM_SERVERS=fcitx
+
+
 # fasd
 export _FASD_DATA="$XDG_CACHE_HOME/fasd"
 export _FASD_VIMINFO="$XDG_CACHE_HOME/viminfo"

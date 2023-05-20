@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, lib, pkgs, ... }:
 
 with lib;
   {
@@ -19,6 +19,56 @@ with lib;
   console = {
     font = "Lat2-Terminus16";
   #  keyMap = "de";
+  };
+
+  # look at https://functor.tokyo/blog/2018-10-01-japanese-on-nixos
+  fonts.fonts =  with pkgs; [
+    carlito
+    dejavu_fonts
+    ipafont
+    kochi-substitute
+    source-code-pro
+    ttf_bitstream_vera
+  ];
+
+  fonts.fontconfig.defaultFonts = {
+    monospace = [
+      "DejaVu Sans Mono"
+      "IPAGothic"
+    ];
+    sansSerif = [
+      "DejaVu Sans"
+      "IPAPGothic"
+    ];
+    serif = [
+      "DejaVu Serif"
+      "IPAPMincho"
+    ];
+  };
+
+
+
+  i18n = {
+    defaultLocale = "en_US.UTF-8";
+    extraLocaleSettings = {
+      LC_ADDRESS = "de_DE.utf8";
+      LC_IDENTIFICATION = "de_DE.utf8";
+      LC_MEASUREMENT = "de_DE.utf8";
+      LC_MONETARY = "de_DE.utf8";
+      LC_NAME = "de_DE.utf8";
+      LC_NUMERIC = "de_DE.utf8";
+      LC_PAPER = "de_DE.utf8";
+      LC_TELEPHONE = "de_DE.utf8";
+      LC_TIME = "de_DE.utf8";
+    };
+    inputMethod = {
+      enabled = "fcitx5";
+      fcitx5.addons = with pkgs; [
+        fcitx5-mozc
+	      fcitx5-configtool
+	      fcitx5-gtk
+      ];
+    };
   };
 
   # For redshift, mainly

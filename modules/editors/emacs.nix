@@ -28,12 +28,15 @@ in {
       binutils       # native-comp needs 'as', provided by this
       # 28.2 + native-comp
       ((emacsPackagesFor emacsUnstable).emacsWithPackages
-        (epkgs: [ epkgs.vterm ]))
+        (epkgs: [ epkgs.vterm epkgs.flycheck-lilypond ]))
 
       ## Doom dependencies
       git
       (ripgrep.override {withPCRE2 = true;})
       gnutls              # for TLS connectivity
+
+      ##creative
+      lilypond
 
       ## Optional dependencies
       fd                  # faster projectile indexing
