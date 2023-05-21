@@ -14,6 +14,7 @@ alias mkdir='mkdir -p'
 alias wget='wget -c'
 alias path='echo -e ${PATH//:/\\n}'
 alias ports='netstat -tulanp'
+alias kan='ssh sanakan@143.42.16.98'
 
 alias mk=make
 alias gurl='curl --compressed'

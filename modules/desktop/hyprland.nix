@@ -11,6 +11,7 @@ in {
    };
 
   config = mkIf cfg.enable {
+    
     #systemd.user.targets.hyprland-session.Unit.Wants = [ "xdg-desktop-autostart.target" ];
     #nixpkgs.overlays = [inputs.hyprland.overlay];
     programs.hyprland  = {

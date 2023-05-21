@@ -34,7 +34,7 @@
     blender.url = "github:edolstra/nix-warez?dir=blender";
 
     hyprland.url = "github:hyprwm/Hyprland";
-    hyprland.inputs.nixpkgs.follows = "nixpkgs";
+    #hyprland.inputs.nixpkgs.follows = "nixpkgs";
 
     hyprwm-contrib.url = "github:hyprwm/contrib";
 
@@ -43,7 +43,7 @@
 
   outputs = inputs @ { self, nixpkgs, nixpkgs-unstable, ...} :
     let
-      inherit (lib.my) mapModules mapModulesRec mapHosts;
+      inherit (lib.my) mapModules mapModulesRec mapHosts outputs;
 
       system = "x86_64-linux";
     
