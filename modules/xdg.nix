@@ -7,7 +7,6 @@
 {
   ### A tidy $HOME is a tidy mind
   home-manager.users.${config.user.name}.xdg.enable = true;
-
   environment = {
     sessionVariables = {
       # These are the defaults, and xdg.enable does set them, but due to load
@@ -30,7 +29,7 @@
       QT_SCALE_FACTOR = "1";
       SDL_VIDEODRIVER = "wayland";
       _JAVA_AWT_WM_NONREPARENTING = "1";
-      QT_QPA_PLATFORM = "wayland";
+      QT_QPA_PLATFORM = "wayland;xcb";
       CLUTTER_BACKEND = "wayland";
       __GLX_VENDOR_LIBRARY_NAME = "nvidia";
       WLR_RENDERER = "vulkan";

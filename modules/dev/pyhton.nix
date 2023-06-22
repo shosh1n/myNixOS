@@ -19,7 +19,7 @@ in {
   config = mkMerge [
     (mkIf cfg.enable {
       user.packages = with pkgs; [
-        micromamba
+        conda
         #python3
         python3Packages.pip
         python3Packages.ipython

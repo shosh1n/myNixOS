@@ -1,0 +1,6 @@
+name: blender
+
+dependencies:
+  - bpy
+  - matplotlib
+  - numpy

@@ -104,6 +104,10 @@
        nginx.enable = true;
        fail2ban.enable = false;
      };
+     hardware =
+       {
+         bluetooth.enable = true;
+       };
 
 	   #theme.active = "alucard";
    };
@@ -112,8 +116,8 @@
 
 
   networking.firewall = {
-    allowedTCPPorts = [ 17500 ];
-    allowedUDPPorts = [ 17500 ];
+    allowedTCPPorts = [ 17500 1714 1715 ];
+    allowedUDPPorts = [ 17500 1715 1715 ];
   };
 
   systemd.user.services.maestral = {
@@ -157,6 +161,9 @@
  #     # locations."/".proxyPass = "http://kiiro:8000";
  #   };
  # };
+  user.packages = with pkgs; [
+    my.houdini
+  ];
 
 
       # ...

@@ -8,7 +8,7 @@ in {
 
   config = mkIf cfg.enable {
     user.packages = with pkgs;
-      [
+      [ sshpass
         (pass.withExtensions (exts:
           [ exts.pass-otp exts.pass-genphrase ]
           ++ (if config.modules.shell.gnupg.enable then

@@ -17,7 +17,7 @@ in {
     };
 
     programs.dconf.enable = true;
-    programs.light.enable = false;
+    programs.light.enable = true;
     programs = {
       zsh = {
       shellInit = ''

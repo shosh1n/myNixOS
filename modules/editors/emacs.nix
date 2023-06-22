@@ -68,7 +68,7 @@ in {
       scrot
       gnuplot
       #required by + jupyter
-      (python3.withPackages (ps: with ps; [ jupyter]))
+      (python3.withPackages (ps: with ps; [sshfs xarray asyncssh jupyter ]))
       #Roam
       anystyle-cli
       graphviz

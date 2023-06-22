@@ -5,3 +5,6 @@ Check these guys out, great stuff!
 
 ** TODO extend configuration of modules via  Home-Mananger
     [[./Desktop.png]]
+
+
+** TODO adjust the Nixos-configuration - so that it is understandable!

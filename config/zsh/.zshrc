@@ -51,3 +51,4 @@ if [[ $TERM != dumb ]]; then
   _cache fasd --init posix-alias zsh-{hook,{c,w}comp{,-install}}
   autopair-init
 fi
+# Automatically activate Python environment on entering FHS environment

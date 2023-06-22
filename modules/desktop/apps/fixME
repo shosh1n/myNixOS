@@ -1,0 +1,30 @@
+{ options, config, lib, pkgs, ... }:
+
+with lib;
+with lib.my;
+let cfg = config.modules.desktop.apps.swww;
+
+in {
+    options.modules.desktop.apps.swww = {
+      enable = mkBoolOpt false;
+
+      package = mkOption {
+        type = types.package;
+        default = pkgs.my.swww;
+        defaultText = "swww";
+        description = "0.7.2";
+        };
+      };
+    config = mkIf cfg.enable {
+      user.packages = [cfg.package];
+      systemd.services.swww = {
+        description = "swww-daemon.";
+        wantedBy = ["hyprland"];
+        after = ["graphical-session.target"];
+      Service  ={
+        ExecStart = ''${pkgs.swww}/bin/swww-daemon'';
+        ExecStop  = ''${pkgs.swww}/bin/swww kill'';
+      };
+      };
+    };
+}

@@ -54,11 +54,10 @@
         overlays = extraOverlays ++ (lib.attrValues self.overlays);
       };
 
-      pkgs = mkPkgs nixpkgs [ self.overlay ];
+      pkgs = mkPkgs nixpkgs [ self.overlay  ];
       pkgs' = mkPkgs nixpkgs-unstable [];
       lib = nixpkgs.lib.extend
         (self: super: { my = import ./lib { inherit pkgs inputs; lib = self; }; });
-
 
       #user = "shoshin";
       #location = "$Home/.setup";
