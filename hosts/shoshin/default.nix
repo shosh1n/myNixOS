@@ -55,6 +55,7 @@
 
        media =
        {
+         daw.enable = true;
          graphics.enable = true;
          blender.enable = true;
          logseq.enable = true;
@@ -82,6 +83,7 @@
 	     cc.enable = true;
 	     rust.enable = true;
 	     python.enable = true;
+       python.conda.enable = true;
        node.enable =  true;
        go.enable = true;
      };
@@ -162,7 +164,7 @@
  #   };
  # };
   user.packages = with pkgs; [
-    my.houdini
+    #my.houdini
   ];
 
 

@@ -35,6 +35,7 @@ in {
         #krita
         # FIXME https://github.com/NixOS/nixpkgs/issues/210098
          gimp
+
          #gimpPlugins.resynthesizer # content-aware scaling in gimp
       ] else
         [ ]) ++

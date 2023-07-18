@@ -63,7 +63,8 @@ in {
       xclip
       networkmanagerapplet
       xdotool
-      xorg.xwininfo
+      #fk this!
+
       my.swww
       #grimshot
       hyprpicker

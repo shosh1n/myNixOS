@@ -52,3 +52,5 @@ if [[ $TERM != dumb ]]; then
   autopair-init
 fi
 # Automatically activate Python environment on entering FHS environment
+eval "$(micromamba shell hook --shell=zsh)"
+micromamba activate

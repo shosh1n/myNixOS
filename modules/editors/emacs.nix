@@ -28,7 +28,7 @@ in {
       binutils       # native-comp needs 'as', provided by this
       # 28.2 + native-comp
       ((emacsPackagesFor emacsUnstable).emacsWithPackages
-        (epkgs: [ epkgs.vterm epkgs.flycheck-lilypond ]))
+        (epkgs: [ epkgs.vterm epkgs.flycheck-lilypond tree-sitter ]))
 
       ## Doom dependencies
       git
@@ -47,7 +47,7 @@ in {
 
       ## Module dependencies
       # :checkers spell
-      (aspellWithDicts (ds: with ds; [ en en-computers en-science ]))
+      (aspellWithDicts (ds: with ds; [ en en-computers en-science de es is]))
       # :tools editorconfig
       languagetool
       editorconfig-core-c # per-project style config
