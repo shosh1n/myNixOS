@@ -64,6 +64,8 @@ in {
       networkmanagerapplet
       xdotool
       #fk this!
+      ledger
+      beancount
 
       my.swww
       #grimshot
@@ -85,14 +87,24 @@ in {
 
     xdg.portal = {
       enable = true;
-      wlr.enable = true;
+      wlr.enable = false;
        };
 
     fonts = {
+      fontconfig = {
+        enable = true;
+        defaultFonts = {
+          sansSerif = ["Iosevka Aile"];
+          monospace = ["JetBrainsMonoNL"];
+        };
+      };
       fontDir.enable = true;
       enableGhostscriptFonts = true;
       fonts = with pkgs; [
         ubuntu_font_family
+        jetbrains-mono
+        (iosevka-bin.override { variant = "aile";})
+        (nerdfonts.override {fonts = ["Iosevka"];})
         dejavu_fonts
         symbola
       ];

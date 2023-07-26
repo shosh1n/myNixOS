@@ -25,7 +25,7 @@ in {
       { };
     identityPaths = options.age.identityPaths.default ++ (filter pathExists [
       "${config.user.home}/.ssh/id_ed25519"
-      "${config.user.home}/.ssh/id_rsa"
+    #  "${config.user.home}/.ssh/id_rsa"
     ]);
   };
 }

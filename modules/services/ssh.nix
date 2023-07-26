@@ -11,8 +11,8 @@ in {
   config = mkIf cfg.enable {
     services.openssh = {
       enable = true;
-      settings.KbdInteractiveAuthentication = false;
-      settings.passwordAuthentication = false;
+      #settings.KbdInteractiveAuthentication = false;
+      #settings.passwordAuthentication = false;
     };
 
     user.openssh.authorizedKeys.keys = [

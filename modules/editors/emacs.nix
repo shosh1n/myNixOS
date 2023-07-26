@@ -68,7 +68,7 @@ in {
       scrot
       gnuplot
       #required by + jupyter
-      (python3.withPackages (ps: with ps; [sshfs xarray asyncssh jupyter ]))
+      (python311.withPackages (ps: with ps; [sshfs xarray asyncssh jupyter ]))
       #Roam
       anystyle-cli
       graphviz
@@ -91,7 +91,7 @@ in {
     modules.shell.zsh.rcFiles = [ "${configDir}/emacs/aliases.zsh" ];
 
     fonts.fonts = [ pkgs.emacs-all-the-icons-fonts ];
-    #services.emacs.enable = true;
+    services.emacs.enable = true;
     system.userActivationScripts = mkIf cfg.doom.enable {
       installDoomEmacs = ''
         if [ ! -d "$XDG_CONFIG_HOME/emacs" ]; then

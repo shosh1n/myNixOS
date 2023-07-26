@@ -9,6 +9,8 @@ with lib;
       };
       hosts = flatten (attrValues hostConfig);
       hostName = config.networking.hostName;
+
+      networking.nameservers = ["1.1.1.1" "9.9.9.9"];
     in mkIf (builtins.elem hostName hosts) hostConfig;
 
 

@@ -50,27 +50,27 @@ in
   #networking.interfaces.enp5s0.useDHCP = lib.mkDefault true;
   #networking.wireless.interfaces.wlp2s0.useDHCP = lib.mkDefault true;
 
-  systemd.services.fix-brightness = {
-    before = [
-      "systemd-backlight@backlight:${
-        if lib.versionOlder kernelPackages.kernel.version "5.18" then "amdgpu_bl0" else "nvidia_wmi_ec_backlight"
-      }.service"
-    ];
-    description = "Convert 16-bit brightness values to 8-bit before systemd-backlight applies it";
-    script = ''
-      BRIGHTNESS_FILE="/var/lib/systemd/backlight/${
-        if lib.versionOlder kernelPackages.kernel.version "5.18" then
-          "pci-0000:05:00.0:backlight:amdgpu_bl0"
-        else
-          "platform-PNP0C14:00:backlight:nvidia_wmi_ec_backlight"
-      }"
-      BRIGHTNESS=$(cat "$BRIGHTNESS_FILE")
-      BRIGHTNESS=$(($BRIGHTNESS*255/65535))
-      BRIGHTNESS=''${BRIGHTNESS/.*} # truncating to int, just in case
-      echo $BRIGHTNESS > "$BRIGHTNESS_FILE"
-    '';
-    serviceConfig.Type = "oneshot";
-  };
+#  systemd.services.fix-brightness = {
+#    before = [
+#      "systemd-backlight@backlight:${
+#        if lib.versionOlder kernelPackages.kernel.version "5.18" then "amdgpu_bl0" else "nvidia_wmi_ec_backlight"
+#      }.service"
+#    ];
+#    description = "Convert 16-bit brightness values to 8-bit before systemd-backlight applies it";
+#    script = ''
+#      BRIGHTNESS_FILE="/var/lib/systemd/backlight/${
+#        if lib.versionOlder kernelPackages.kernel.version "5.18" then
+#          "pci-0000:05:00.0:backlight:amdgpu_bl0"
+#        else
+#          "platform-PNP0C14:00:backlight:nvidia_wmi_ec_backlight"
+#      }"
+#      BRIGHTNESS=$(cat "$BRIGHTNESS_FILE")
+#      BRIGHTNESS=$(($BRIGHTNESS*255/65535))
+#      BRIGHTNESS=''${BRIGHTNESS/.*} # truncating to int, just in case
+#      echo $BRIGHTNESS > "$BRIGHTNESS_FILE"
+#    '';
+#    serviceConfig.Type = "oneshot";
+#  };
 	hardware.enableRedistributableFirmware = true;
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }

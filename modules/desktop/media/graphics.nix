@@ -34,7 +34,7 @@ in {
       (if cfg.raster.enable then [
         #krita
         # FIXME https://github.com/NixOS/nixpkgs/issues/210098
-         gimp
+        #        gimp
 
          #gimpPlugins.resynthesizer # content-aware scaling in gimp
       ] else
