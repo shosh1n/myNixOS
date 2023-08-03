@@ -5,7 +5,7 @@ with lib.my;
 let cfg = config.modules.desktop.hyprland;
 
 in {
-  imports = [inputs.hyprland.nixosModules.default];
+  imports = [ ./eww.nix inputs.hyprland.nixosModules.default];
   options.modules.desktop.hyprland= {
     enable = mkBoolOpt false;
    };
