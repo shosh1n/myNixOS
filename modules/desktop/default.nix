@@ -44,19 +44,27 @@ in {
     ];
 
     fonts = {
+      fontconfig = {
+        enable = true;
+        defaultFonts = {
+          sansSerif = ["Iosevka Aile"];
+          monospace = ["JetBrainsMonoNL"];
+        };
+      };
       fontDir.enable = true;
       enableGhostscriptFonts = true;
       fonts = with pkgs; [
         ubuntu_font_family
-        dejavu_fonts
         fira
         jetbrains-mono
-        symbola
+        (iosevka-bin.override { variant = "aile";})
+        (nerdfonts.override {fonts = ["Iosevka"];})
         noto-fonts
         noto-fonts-cjk
+        dejavu_fonts
+        symbola
       ];
     };
-
     ## Apps/Services
     services.xserver.displayManager.lightdm.greeters.mini.user =
       config.user.name;

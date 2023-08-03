@@ -34,8 +34,7 @@
     blender.url = "github:edolstra/nix-warez?dir=blender";
 
     hyprland.url = "github:hyprwm/Hyprland";
-
-    hyprwm-contrib.url = "github:hyprwm/contrib";
+    hyprland-contrib.url = "github:hyprwm/contrib";
 
   #End of Inputs
   };

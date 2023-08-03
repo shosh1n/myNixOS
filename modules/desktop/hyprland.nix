@@ -29,6 +29,12 @@ in {
       })
        wl-clipboard
        grimblast
+       ledger
+       beancount
+       networkmanagerapplet
+       cinnamon.nemo
+       feh
+
        wf-recorder
        wlsunset
        scratchpad
@@ -49,7 +55,7 @@ in {
       enable = true;
       settings = {
         default_session = {
-          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd 'Hyprland' --remember --asteriks --user-menu";
+          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd 'Hyprland' --remember --asterisks --user-menu";
           user = "shoshin";
         };
       };
@@ -67,6 +73,28 @@ in {
        recursive = true;
      };
    };
+    fonts = {
+      fontconfig = {
+        enable = true;
+        defaultFonts = {
+          sansSerif = ["Iosevka Aile"];
+          monospace = ["JetBrainsMonoNL"];
+        };
+      };
+      fontDir.enable = true;
+      enableGhostscriptFonts = true;
+      fonts = with pkgs; [
+        ubuntu_font_family
+        fira
+        jetbrains-mono
+        (iosevka-bin.override { variant = "aile";})
+        (nerdfonts.override {fonts = ["Iosevka"];})
+        noto-fonts
+        noto-fonts-cjk
+        dejavu_fonts
+        symbola
+      ];
+    };
   }
   # Nvidia
     (mkIf config.modules.hardware.nvidia.enable {
