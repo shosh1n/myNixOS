@@ -62,6 +62,7 @@ in {
       feh       # image viewer
       xclip
       networkmanagerapplet
+      parted
       xdotool
       #fk this!
       ledger

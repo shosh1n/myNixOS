@@ -22,6 +22,7 @@ in {
         clang
         gcc
         cling
+        mercurial
         xeus
         bear
         gdb

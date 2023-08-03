@@ -20,7 +20,7 @@ in {
       # lmms # for making music
       linuxsampler
       qsampler
-      qjackctl
+      #qjackctl
       reaper
       audacity # for recording and remastering audio
       # sunvox     # for making music (where LMMS is overkill)

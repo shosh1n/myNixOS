@@ -3,9 +3,8 @@
 with lib;
 with lib.my;
 let cfg = config.modules.desktop.hyprland;
-    inherit (inputs) hyprland;
-configDir = config.dotfiles.configDir;
 in {
+  imports = [inputs.hyprland.nixosModules.default];
   options.modules.desktop.hyprland= {
     enable = mkBoolOpt false;
    };
@@ -14,7 +13,7 @@ in {
     
     #systemd.user.targets.hyprland-session.Unit.Wants = [ "xdg-desktop-autostart.target" ];
     #nixpkgs.overlays = [inputs.hyprland.overlay];
-    programs.hyprland  = {
+    wayland.windowManager.hyprland  = {
       enable = true;
 
       xwayland = {
@@ -33,7 +32,7 @@ in {
    home.configFile = {
      "hyprland.conf".source= "${configDir}/hypr";
    };
-   environment.systemPackages = with pkgs; [inputs.hyprwm-contrib.packages.${system}.grimblast slurp wl-clipboard];
+   environment.systemPackages = with pkgs; [inputs.hyprwm-contrib.packages.${system}.grimblast slurp wl-clipboard libxkbcommon];
 };
 
 
