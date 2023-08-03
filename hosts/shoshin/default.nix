@@ -26,6 +26,7 @@
        awesomewm.enable = false;
        xmonad.enable = false;
        bspwm.enable = false;
+       sway.enble = false;
        hyprland.enable = true;
        apps =
        {

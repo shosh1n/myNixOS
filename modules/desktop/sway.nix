@@ -12,7 +12,7 @@ in {
   options.modules.desktop.sway = {enable = mkBoolOpt false;};
 
   config = mkIf cfg.enable {
-    home-manager.users.emiller = {
+    home-manager.users.shoshin = {
       wayland.windowManager.sway.enable = true;
       programs.foot.enable = true;
       wayland.windowManager.sway.config = rec {
@@ -158,7 +158,7 @@ in {
       '';
     };
 
-    home-manager.users.emiller.wayland.windowManager.sway = {
+    home-manager.users.shoshin.wayland.windowManager.sway = {
       extraSessionCommands = ''
         export WLR_NO_HARDWARE_CURSORS=1
         export NIXOS_OZONE_WL=1
