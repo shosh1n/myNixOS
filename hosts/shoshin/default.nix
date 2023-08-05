@@ -107,12 +107,6 @@
        nginx.enable = true;
        fail2ban.enable = false;
      };
-     hardware =
-       {
-         audio.enable = true;
-         bluetooth.enable = true;
-       };
-
 	   #theme.active = "alucard";
    };
 

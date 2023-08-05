@@ -12,6 +12,7 @@ in {
 
   config = mkIf cfg.enable (mkMerge[
     {
+    programs.dconf.enable = true;
     programs.hyprland  = {
       enable = true;
       xwayland = {
@@ -21,7 +22,7 @@ in {
     };
     environment.systemPackages = with pkgs;
       with inputs.hyprland-contrib.packages.${pkgs.system}; [
-       dunst
+       #dunst
        libnotify
       (inputs.hyprland.packages."x86_64-linux".waybar-hyprland.override {
         wireplumberSupport = true;
@@ -29,27 +30,37 @@ in {
       })
        wl-clipboard
        grimblast
-       ledger
-       beancount
        networkmanagerapplet
        cinnamon.nemo
        feh
-
        wf-recorder
        wlsunset
-       scratchpad
-       wofi
        hyprpicker
      ];
+   user.packages = with pkgs; [
+       ledger
+       beancount
+       my.swww
+   ];
 
-      systemd.user.services."dunst" = {
-        enable = true;
-        description = "";
-        wantedBy = ["default.target"];
-        serviceConfig.Restart = "always";
-        serviceConfig.RestartSec = 2;
-        serviceConfig.ExecStart = "${pkgs.dunst}/bin/dunst";
-      };
+     # systemd.user.services."dunst" = {
+     #   enable = true;
+     #   description = "";
+     #   wantedBy = ["default.target"];
+     #   serviceConfig.Restart = "always";
+     #   serviceConfig.RestartSec = 2;
+     #   serviceConfig.ExecStart = "${pkgs.dunst}/bin/dunst";
+     # };
+   home-manager.users.shoshin ={
+   services.mako = {
+     enable = true;
+     };
+   };
+    xdg.portal = {
+      enable = true;
+      wlr.enable = false;
+       };
+
 
     services.greetd = {
       enable = true;
@@ -98,7 +109,7 @@ in {
   }
   # Nvidia
     (mkIf config.modules.hardware.nvidia.enable {
-      programs.hyprland.nvidiaPatches = true;
+      programs.hyprland.nvidiaPatches = false;
       environment.sessionVariables.WLR_NO_HARDWARE_CURSORS = "1";
     })
   ]);
