@@ -34,11 +34,6 @@ in {
         };
 
 
-
-
-
-
-
   windowManager.xmonad.enable = true;
 	windowManager.xmonad.enableContribAndExtras = true;
 	windowManager.xmonad.extraPackages = hp: [

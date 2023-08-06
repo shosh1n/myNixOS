@@ -33,12 +33,16 @@ in {
        networkmanagerapplet
        cinnamon.nemo
        feh
+       qt5ct
+
        wf-recorder
        wlsunset
        hyprpicker
+       #hyprpaper
      ];
    user.packages = with pkgs; [
        ledger
+       easyeffects
        beancount
        my.swww
    ];
@@ -109,7 +113,7 @@ in {
   }
   # Nvidia
     (mkIf config.modules.hardware.nvidia.enable {
-      programs.hyprland.nvidiaPatches = false;
+      programs.hyprland.nvidiaPatches = true;
       environment.sessionVariables.WLR_NO_HARDWARE_CURSORS = "1";
     })
   ]);
