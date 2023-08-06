@@ -8,7 +8,7 @@ in
 {
   imports = [
     #deactivated due to fix-brightness error
-    #inputs.nixos-hardware.nixosModules.lenovo-legion-15ach6
+    inputs.nixos-hardware.nixosModules.lenovo-legion-15ach6
   ];
 
   boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" ];

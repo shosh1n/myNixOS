@@ -42,7 +42,7 @@ in {
      ];
    user.packages = with pkgs; [
        ledger
-       easyeffects
+       pavucontrol
        beancount
        my.swww
    ];
