@@ -64,6 +64,7 @@ with lib.my;
   # Just the bear necessities...
   environment.systemPackages = with pkgs; [
     bind
+    mergerfs
     cached-nix-shell
     coreutils
     git

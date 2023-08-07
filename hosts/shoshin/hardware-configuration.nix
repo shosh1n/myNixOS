@@ -32,10 +32,17 @@ in
       fsType = "ext4";
     };
 
-  fileSystems."/home/shoshin/space" =
+  fileSystems."/space" =
     { device = "/dev/disk/by-uuid/a50eeb5f-95f5-449d-8731-8c2c9e15b0d7";
       fsType = "ext4";
+      mountPoint = "/mnt/space";
     };
+
+  fileSystem."merged_nixspace" = {
+    device = "/mnt/merged_nixspace";
+    fsType = "fuse.mergerfs";
+    options = "defaults,allow_other,use_ino,fsname=mergerfs_nixspace,nonempty";
+  };
 
   fileSystems."/boot/efi" =
     { device = "/dev/disk/by-uuid/BD1E-1C7E";

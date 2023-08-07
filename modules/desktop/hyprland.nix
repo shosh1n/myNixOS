@@ -34,7 +34,7 @@ in {
        cinnamon.nemo
        feh
        qt5ct
-
+       scratchpad
        wf-recorder
        wlsunset
        hyprpicker
