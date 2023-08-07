@@ -33,16 +33,30 @@ in
     };
 
   fileSystems."/space" =
-    { device = "/dev/disk/by-uuid/a50eeb5f-95f5-449d-8731-8c2c9e15b0d7";
+    { device = "/dev/disk/by-uuid/2c309b55-f0e3-441b-986e-94744c474191";
       fsType = "ext4";
       mountPoint = "/mnt/space";
     };
 
-  fileSystem."merged_nixspace" = {
-    device = "/mnt/merged_nixspace";
-    fsType = "fuse.mergerfs";
-    options = "defaults,allow_other,use_ino,fsname=mergerfs_nixspace,nonempty";
-  };
+  systemd.services.mergerfs-nixspace = {
+      description = "MergerFS for Nix store";
+      wantedBy = [ "multi-user.target" ];
+      after = [ "local-fs.target" ];
+      serviceConfig = {
+        Type = "simple";
+        ExecStart = ''
+              usr/bin/mergerfs \
+              -o defaults,allow_other,use_ino,fsname=mergerfs_nixspace \
+              /mnt/space:/nix/store \
+              /nix/store'';
+      };
+    };
+
+  fileSystems."/compact" =
+    { device = "/dev/disk/by-uuid/7dd53484-9479-4b10-809c-a43e73e5a1dd";
+      fsType = "ext4";
+      mountPoint = "/home/shoshin/compact";
+    }; 
 
   fileSystems."/boot/efi" =
     { device = "/dev/disk/by-uuid/BD1E-1C7E";
